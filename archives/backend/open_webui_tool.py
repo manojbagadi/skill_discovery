@@ -13,7 +13,7 @@ from pydantic import BaseModel, Field
 from typing import List
 
 class Tools:
-    def __init__(self):
+    def __init__(self): 
         # We define a minimal hardcoded taxonomy here for the tool so it works seamlessly inside Open WebUI without needing external files.
         self.taxonomy = [
             {
