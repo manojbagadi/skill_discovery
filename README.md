@@ -2,6 +2,8 @@
 > **SIH 2026 | UNESCO Young Scientist Expo 2026**
 > 
 > *"We don't tell students what to learn. We make them confess what they already love."*
+> 
+> 📄 **Master Blueprint**: [SIH_Skill_Discovery_Engine_Master_Blueprint.md](file:///home/harsha/sih/SIH_Skill_Discovery_Engine_Master_Blueprint.md)
 
 ---
 
