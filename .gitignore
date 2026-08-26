@@ -50,3 +50,9 @@ out/
 # OS
 .DS_Store
 Thumbs.db
+
+# SIH Engine Specific
+skill_discovery_engine_architecture.png
+skill_discovery_engine_architecture.svg
+actual_working_prompt
+*.db
