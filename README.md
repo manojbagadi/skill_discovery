@@ -166,17 +166,6 @@ Start a chat with `Arya`. Say "Hi". Follow the flow.
 | Prompt engineering on raw LLM | Deterministic scoring engine + state machine |
 
 ---
-
-## 🔮 Future Roadmap
-
-| Milestone | Date | What |
-|-----------|------|------|
-| SIH 2026 | Sep 24 | API-based demo with this architecture |
-| 20M Model | Sep 18 | NanoChat Titan 20M checkpoint (birthday) |
-| 100M Model | Jan 10 | Full pretraining complete |
-| Sankranthi | Jan 14 | Open weights release + app runs on local model |
-| Phone Build | Jan-Feb | Quantized 100M model on Dimensity via llama.cpp |
-
 ---
 
 ## 📝 License
