@@ -5,6 +5,9 @@ from sqlalchemy.orm import sessionmaker, Session
 from typing import List
 import json
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import models
 import schemas
@@ -101,7 +104,8 @@ def read_root():
     return {"message": "Skill Discovery API Online (SaaS DB-Driven)"}
 
 from google import genai
-client = genai.Client(api_key="AQ.Ab8RN6JYm6pUASuwan5t-KyVUfHAludFZAMz5d6rLtyN08EgTg")
+gemini_api_key = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6JYm6pUASuwan5t-KyVUfHAludFZAMz5d6rLtyN08EgTg")
+client = genai.Client(api_key=gemini_api_key)
 
 @app.post("/parse")
 def parse_evidence(req: schemas.ProfileRequest, db: Session = Depends(get_db)):
@@ -170,8 +174,15 @@ def generate_plan(hypothesis: schemas.SkillHypothesisScore, db: Session = Depend
     ).order_by(models.TaskTemplate.day).all()
     
     if not templates:
-        # Provide empty plan if we haven't seeded this specific skill yet
-        return schemas.PlanResponse(hypothesis_id=hypothesis.skill_id, template_version=0, tasks=[])
+        # Provide a structured 5-day micro-experiment fallback tailored to the skill
+        fallback_tasks = [
+            schemas.PlanTask(day=1, title="Environment Setup & First Output", description=f"Set up your environment for {hypothesis.skill_name}. Create and save your first minimal demo or 'hello world'.", minutes=45, tier="standard", expected_output="Screenshot or repository link"),
+            schemas.PlanTask(day=2, title="Core Primitives & Building Blocks", description=f"Explore key fundamental tools and concepts in {hypothesis.skill_name}.", minutes=45, tier="standard", expected_output="Working mini-exercise or component"),
+            schemas.PlanTask(day=3, title="Clone or Replicate an Example", description=f"Take a real-world example in {hypothesis.skill_name} and replicate 50% of it yourself.", minutes=45, tier="standard", expected_output="Replicated demo or artifact"),
+            schemas.PlanTask(day=4, title="Independent Mini-Project", description=f"Build something original in {hypothesis.skill_name} from scratch solving a small problem.", minutes=45, tier="standard", expected_output="Working project artifact"),
+            schemas.PlanTask(day=5, title="Peer Demo & Reflection", description="Present your output to a peer or mentor. Gather feedback and record your reflections.", minutes=45, tier="standard", expected_output="Feedback summary & reflection notes")
+        ]
+        return schemas.PlanResponse(hypothesis_id=hypothesis.skill_id, template_version=1, tasks=fallback_tasks)
         
     tasks = [
         schemas.PlanTask(
@@ -189,3 +200,4 @@ def generate_plan(hypothesis: schemas.SkillHypothesisScore, db: Session = Depend
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+

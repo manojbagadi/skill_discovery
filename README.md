@@ -94,9 +94,47 @@ skill-discovery-engine/
 
 ---
 
-## 🚀 Setup Instructions
+## 🚀 Setup & Running Locally
 
-### Step 1: Start Open WebUI
+### Option A: Full-Stack Web Application (FastAPI + React)
+
+#### 1. Backend Setup
+```bash
+cd backend
+# Create and activate virtual environment (optional)
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On Linux/macOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env from example (add your GEMINI_API_KEY)
+cp .env.example .env
+
+# Run FastAPI server
+uvicorn main:app --reload --port 8000
+```
+Backend will be live at `http://localhost:8000`.
+
+#### 2. Frontend Setup
+```bash
+cd frontend
+# Install dependencies
+npm install
+
+# Run Vite dev server
+npm run dev
+```
+Frontend will be live at `http://localhost:5173`.
+
+---
+
+### Option B: Open WebUI Agent Integration
+
+#### Step 1: Start Open WebUI
 ```bash
 docker run -d -p 3000:8080 \
   --add-host=host.docker.internal:host-gateway \
@@ -107,30 +145,30 @@ docker run -d -p 3000:8080 \
 ```
 Open `http://localhost:3000` and create your admin account.
 
-### Step 2: Configure LLM API
+#### Step 2: Configure LLM API
 Go to **Settings > Connections** and add:
 - **Groq** (recommended): Fast, cheap, supports tool calling
   - Model: `llama3-70b-8192` or `mixtral-8x7b-32768`
 - **OpenAI**: `gpt-4o-mini` or `gpt-4o`
 - **Together AI**: `meta-llama/Llama-3-70b-chat-hf`
 
-### Step 3: Upload the Tool
+#### Step 3: Upload the Tool
 1. Go to **Workspace > Tools**
 2. Click **+**
-3. Copy ALL of `skill_discovery_engine.py`
+3. Copy ALL of `archives/skill_discovery_engine.py`
 4. Name: `SkillDiscoveryEngine`
 5. Save
 
-### Step 4: Create the Agent
+#### Step 4: Create the Agent
 1. Go to **Workspace > Models**
 2. Click **+**
 3. **Name**: `Arya — Skill Discovery Mentor`
 4. **Base Model**: Select your configured model
-5. **System Prompt**: Paste ALL of `system_prompt.md`
+5. **System Prompt**: Paste ALL of `archives/system_prompt.md`
 6. **Tools**: Enable `SkillDiscoveryEngine`
 7. **Save**
 
-### Step 5: Test
+#### Step 5: Test
 Start a chat with `Arya`. Say "Hi". Follow the flow.
 
 ---
