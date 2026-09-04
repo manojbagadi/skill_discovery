@@ -5,7 +5,7 @@
 ---
 
 ## 📌 SIH Problem Statement Details
-* **Problem Statement ID:** `sih26202`
+* **Problem Statement ID:** `SIH26202`
 * **Problem Statement Title:** AI-Driven Skill Discovery & Personalized Career Path Navigation Engine
 * **Organization:** Ministry of Education / AICTE
 * **Category:** Software
@@ -124,10 +124,10 @@ The **Skill Discovery Engine** is a cognitive translation platform that bridges 
 
 ## 👥 Team Details
 
-* **Team Name:** Tech Innovators (SIH 2026)
-* **Team Leader:** **B. Manoj** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
-* **Member 2:** **P. Raghuram** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
-* **Member 3:** **B. Sailaxmi** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
-* **Member 4:** **P. Dharani** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
-* **Member 5:** **ch. Lokteja** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
-* **Member 6:** **B. Harshavardhan** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
+* **Team Name:** Skillcraft (SIH 2026)
+* **Team Leader:** **B. Manoj** 
+* **Member 2:** **P. Raghuram** 
+* **Member 3:** **B. Sailaxmi** 
+* **Member 4:** **P. Dharani** 
+* **Member 5:** **ch. Lokteja** 
+* **Member 6:** **B. Harshavardhan** 
