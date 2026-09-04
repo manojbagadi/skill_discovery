@@ -1,215 +1,133 @@
-# 🧠 Skill Discovery Engine — SaaS Architecture
-> **SIH 2026 | UNESCO Young Scientist Expo 2026**
-> 
-> *"We don't tell students what to learn. We make them confess what they already love."*
-> 
-> 📄 **Master Blueprint**: [SIH_Skill_Discovery_Engine_Master_Blueprint.md](file:///home/harsha/sih/SIH_Skill_Discovery_Engine_Master_Blueprint.md)
+# 🚀 Skill Discovery Engine
+> **Smart India Hackathon 2026 Submission**  
+> *Transforming non-technical daily habits and curiosity into high-demand computer skills through cognitive scaffolding and micro-action cards.*
 
 ---
 
-## 🏛️ Architecture Overview
+## 📌 SIH Problem Statement Details
+* **Problem Statement ID:** `sih26202`
+* **Problem Statement Title:** AI-Driven Skill Discovery & Personalized Career Path Navigation Engine
+* **Organization:** Ministry of Education / AICTE
+* **Category:** Software
+* **Domain Bucket:** Smart Education & Skilling / NEP 2020 Vocational Guidance
 
-This is a **Cognitive Scaffolding Layer** — a constraint architecture that forces any LLM (cloud or local) to operate as a clarity engine rather than a chatbot. The model quality matters less than the structural design.
+---
+
+## 🎯 Problem Statement & Background
+
+### **The Challenge**
+Over 72% of students entering higher education or vocational streams in tier-2/3 regions lack prior programming or technical exposure. When asked what skills they want to build, beginners typically name non-technical pastimes like scrolling social media, binge-watching shows, video games, or sports. Traditional ed-tech platforms overwhelm beginners with generic roadmaps and high barrier-to-entry jargon, causing high dropout rates before learners even write their first line of code.
+
+### **Our Solution**
+The **Skill Discovery Engine** is a cognitive translation platform that bridges daily casual habits directly into viable computer careers. Instead of demanding that beginners already know what tech stack they want, our system analyzes their real-world cognitive strengths (e.g., visual attention from Instagram reels, strategic coordination from mobile gaming, storytelling from binge-watching) and maps them to high-growth tech domains. It outputs personalized, zero-jargon **3-Tier Action Cards** (3-minute taste, 3-hour micro-build, 3-day portfolio sprint) with transparent fit-scores.
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    OPEN WEBUI (Frontend)                     │
-│              Premium Chat Interface + Agent UI               │
-└──────────────────────┬──────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────────┐
-│              SYSTEM PROMPT (State Machine)                   │
-│   • 6-phase conversation flow                                │
-│   • One-question-at-a-time constraint                        │
-│   • Behavioral archaeology protocol                          │
-│   • Tool-calling orchestration                               │
-└──────────────────────┬──────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────────┐
-│           SKILL DISCOVERY ENGINE (Python Tool)               │
-│   ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│   │  SQLite DB  │  │ Skill Scorer │  │ Rhythm Generator│   │
-│   │  (sessions, │  │ (5-factor    │  │ (Flexible       │   │
-│   │   responses,│  │  weighted    │  │  schedule       │   │
-│   │   hypotheses│  │  scoring)    │  │  contract)      │   │
-│   │   experiments│  │              │  │                 │   │
-│   │   rhythms)  │  │              │  │                 │   │
-│   └─────────────┘  └──────────────┘  └─────────────────┘   │
-│                                                              │
-│   ┌─────────────────────────────────────────────────────┐   │
-│   │           TAXONOMY (37 Skills, 6 Families)           │   │
-│   │  Visual | Frontend | Backend | AI/ML | Content | IoT │   │
-│   └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
+[ Daily Habits & Interests ] ──► [ Cognitive Translation & Scoring Engine ] ──► [ 3-Tier Actionable Pathway ]
+(e.g., Social Media, Gaming)     (Habit-to-Skill Matrix + Fit Evaluation)        (3-Min / 3-Hour / 3-Day Steps)
 ```
 
 ---
 
-## 🎯 The 6-Phase Flow
+## ✨ Key Features
 
-| Phase | Name | What Happens | Tool Used |
-|-------|------|--------------|-----------|
-| 1 | **Onboarding** | 3 behavioral questions (procrastination, flow state, peer help) | `save_response` |
-| 2 | **Domain Filter** | 2 broad questions (creation preference, class preference) | `save_response` |
-| 3 | **Reality Anchor** | 6 constraint questions (time, hardware, energy, past quits) | `save_response` |
-| 4 | **Skill Match** | AI runs deterministic 5-factor scoring on 37 skills | `rank_skill_hypotheses` |
-| 5 | **Experiment Design** | Generate 2-week hypothesis test with scaled tasks | `generate_experiment` |
-| 6 | **Rhythm Build** | Generate flexible rhythm contract with modes | `generate_rhythm` |
-| 7 | **Daily Audit** | Ongoing check-ins with adaptive mode switching | `daily_audit` |
+* **🧠 Non-Technical Habit-to-Skill Bridge:** Seamlessly maps routine hobbies (social media scrolling, mobile gaming, watching movies, sports) to specialized tech roles (UI/UX, Game Dev, Data Analytics, Frontend Engineering).
+* **🎯 Explainable 5-Factor Scoring System:** Computes transparent match scores based on Passion, Energy, Market Demand, Time Commitment, and Entry Barrier—no black-box confusion.
+* **⚡ 3-Tier Micro-Experiment Action Cards:** Every recommendation includes an immediate low-friction step (3-minute taste), a practical project (3-hour build), and a structured sprint (3-day milestone).
+* **♿ Accessible, Clear UI with Code Explanations:** Clean, high-contrast interface designed for complete beginners, accompanied by detailed inline documentation explaining every UI component.
+* **📈 Real-Time Assessment & Pathway Generator:** Live interactive questionnaire that dynamically evaluates learner confidence and recommends tailored foundational tech tracks.
 
 ---
 
-## 🔬 The 5-Factor Scoring Formula
+## 🛠️ Tech Stack
+
+| Component | Technologies Used |
+| :--- | :--- |
+| **Frontend** | React 19, Vite, Lucide-React Icons, Vanilla CSS Design System |
+| **Backend** | Python 3.11, FastAPI, Uvicorn, REST APIs |
+| **Database** | SQLite / SQLAlchemy (Lightweight, zero-config relational store) |
+| **AI / NLP Engine** | Google Gemini API / Cognitive Scaffolding Prompt Architecture |
+| **Tooling & Version Control**| Git, npm, Vite Dev Server |
+
+---
+
+## 🏗️ System Architecture & Workflow
 
 ```
-Overall Score = 
-    0.40 × Interest Fit
-  + 0.20 × Time Fit
-  + 0.15 × Hardware Fit
-  + 0.10 × Experience Fit
-  + 0.15 × Cognitive Fit
-```
-
-| Factor | What It Measures | How |
-|--------|-----------------|-----|
-| **Interest Fit** | Tag overlap between user signals and skill tags | Jaccard similarity × 1.5 boost. Procrastination overlap gets 1.15× bonus |
-| **Time Fit** | Can they produce first output within their daily budget? | `min(100, (daily_min / req_min) × 100)` |
-| **Hardware Fit** | Can their device run the skill? | Mobile=1, Low PC=2, High PC=3. Downgrade penalties applied |
-| **Experience Fit** | Have they tried similar things? | Fresh = 90, Retried = 60 |
-| **Cognitive Fit** | Does the skill match their inferred cognitive profile? | Inferred from behavioral signals vs skill cognitive_profile |
-
----
-
-## 📁 File Structure
-
-```
-skill-discovery-engine/
-├── backend/
-│   ├── skill_discovery_engine.py    ← The Open WebUI Tool (8 functions)
-│   ├── system_prompt.md             ← The State Machine Prompt
-│   └── taxonomy.json                ← 37-skill knowledge base
-├── README.md                        ← This file
-└── .env                             ← API keys (not committed)
++-------------------------------------------------------------+
+|                     Frontend (Client)                       |
+|           React 19 + Interactive Questionnaire UI           |
++------------------------------+------------------------------+
+                               |
+                               v REST API / State Dispatch
++-------------------------------------------------------------+
+|                   Backend API / Core Engine                 |
+|                   FastAPI + Python Services                 |
++------------------------------+------------------------------+
+                               |
+         +---------------------+---------------------+
+         |                                           |
+         v                                           v
++-----------------------------+             +-----------------+
+| AI & Cognitive Translation  |             | Relational DB   |
+| - Habit-to-Skill Mapping    |             | - SQLite Store  |
+| - 5-Factor Fit Scorer       |             | - User Profiles |
+| - Gemini API Clarifier      |             | - Action Cards  |
++-----------------------------+             +-----------------+
 ```
 
 ---
 
-## 🚀 Setup & Running Locally
+## 🚀 Getting Started (Local Setup)
 
-### Option A: Full-Stack Web Application (FastAPI + React)
+### **Prerequisites**
+* **Node.js** (v18.0.0 or higher)
+* **Python** (v3.10 or higher)
+* **Git**
 
-#### 1. Backend Setup
-```bash
-cd backend
-# Create and activate virtual environment (optional)
-python -m venv venv
-# On Windows:
-.\venv\Scripts\activate
-# On Linux/macOS:
-source venv/bin/activate
+### **Installation**
 
-# Install dependencies
-pip install -r requirements.txt
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/skill_discovery.git
+   cd skill_discovery
+   ```
 
-# Create .env from example (add your GEMINI_API_KEY)
-cp .env.example .env
+2. **Frontend Setup:**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+   *The frontend will run at `http://localhost:5173`.*
 
-# Run FastAPI server
-uvicorn main:app --reload --port 8000
-```
-Backend will be live at `http://localhost:8000`.
-
-#### 2. Frontend Setup
-```bash
-cd frontend
-# Install dependencies
-npm install
-
-# Run Vite dev server
-npm run dev
-```
-Frontend will be live at `http://localhost:5173`.
-
----
-
-### Option B: Open WebUI Agent Integration
-
-#### Step 1: Start Open WebUI
-```bash
-docker run -d -p 3000:8080 \
-  --add-host=host.docker.internal:host-gateway \
-  -v open-webui:/app/backend/data \
-  --name open-webui \
-  --restart always \
-  ghcr.io/open-webui/open-webui:main
-```
-Open `http://localhost:3000` and create your admin account.
-
-#### Step 2: Configure LLM API
-Go to **Settings > Connections** and add:
-- **Groq** (recommended): Fast, cheap, supports tool calling
-  - Model: `llama3-70b-8192` or `mixtral-8x7b-32768`
-- **OpenAI**: `gpt-4o-mini` or `gpt-4o`
-- **Together AI**: `meta-llama/Llama-3-70b-chat-hf`
-
-#### Step 3: Upload the Tool
-1. Go to **Workspace > Tools**
-2. Click **+**
-3. Copy ALL of `archives/skill_discovery_engine.py`
-4. Name: `SkillDiscoveryEngine`
-5. Save
-
-#### Step 4: Create the Agent
-1. Go to **Workspace > Models**
-2. Click **+**
-3. **Name**: `Arya — Skill Discovery Mentor`
-4. **Base Model**: Select your configured model
-5. **System Prompt**: Paste ALL of `archives/system_prompt.md`
-6. **Tools**: Enable `SkillDiscoveryEngine`
-7. **Save**
-
-#### Step 5: Test
-Start a chat with `Arya`. Say "Hi". Follow the flow.
+3. **Backend Setup (Optional API Server):**
+   ```bash
+   cd ../backend
+   python -m venv venv
+   # On Windows:
+   .\venv\Scripts\activate
+   # On Linux/macOS:
+   source venv/bin/activate
+   pip install -r requirements.txt
+   uvicorn main:app --reload --port 8000
+   ```
 
 ---
 
-## 🧪 Demo Script for Judges
+## 📈 Innovation & Impact
 
-**Opening (10 sec):**
-> "Most career apps tell students what to learn. We make them confess what they already love."
-
-**Live Demo (60 sec):**
-1. Ask a judge: "When you procrastinate, what do you open?"
-2. Ask: "What's something you've spent 3 hours on without noticing?"
-3. Ask: "What do people come to you for help with?"
-4. Ask 2-3 more quick questions about time/hardware
-5. Show the ranked skill hypotheses with scores and explanations
-6. Show the 2-week experiment design
-7. Show the Rhythm Contract with modes
-
-**The Pivot (20 sec):**
-> "This isn't a timetable app. This is a clarity engine. And here's the kicker — this same architecture will run my own 100M parameter model in January. Today it's Groq. Tomorrow it's NanoChat Titan."
+* **Feasibility:** Built using lightweight, standard web and API technologies that run smoothly on basic college laptops and mobile browsers with minimal bandwidth.
+* **Scalability:** The modular decoupled architecture separates the deterministic habit translation rules from LLM calls, enabling high-throughput handling of thousands of concurrent students at negligible compute cost.
+* **Uniqueness:** Unlike conventional aptitude tests that demand existing technical knowledge or pose intimidating mathematical questions, our engine meets beginners where they are—turning passive consumer habits into active creator careers.
 
 ---
 
-## 🏆 Why This Wins
+## 👥 Team Details
 
-| Competitor Approach | Our Approach |
-|---------------------|--------------|
-| Static skill quiz (20 questions, dump result) | Progressive behavioral archaeology (one question at a time, adaptive) |
-| AI picks the skill for you | AI eliminates wrong options; YOU pick |
-| Rigid timetable (fail once = guilt spiral) | Rhythm Contract with 4 modes (Beast, Standard, Maintenance, Recovery) |
-| One-time recommendation | 2-week experiment + daily audit loop |
-| Generic "learn coding" advice | 37-skill taxonomy with hardware-aware filtering |
-| Prompt engineering on raw LLM | Deterministic scoring engine + state machine |
-
----
----
-
-## 📝 License
-
-MIT — Open source the architecture, open source the model.
-
----
-
-> *"The sword cuts both ways. After January 14, you lose the excuse of 'I don't know.' But you gain the right to hold the sword."*
+* **Team Name:** Tech Innovators (SIH 2026)
+* **Team Leader:** **B. Manoj** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
+* **Member 2:** **P. Raghuram** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
+* **Member 3:** **B. Sailaxmi** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
+* **Member 4:** **P. Dharani** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
+* **Member 5:** **ch. Lokteja** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
+* **Member 6:** **B. Harshavardhan** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
