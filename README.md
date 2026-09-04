@@ -124,7 +124,7 @@ The **Skill Discovery Engine** is a cognitive translation platform that bridges 
 
 ## 👥 Team Details
 
-* **Team Name:** Tech Innovators (SIH 2026)
+* **Team Name:** Skillcraft
 * **Team Leader:** **B. Manoj** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
 * **Member 2:** **P. Raghuram** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
 * **Member 3:** **B. Sailaxmi** ([GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/))
