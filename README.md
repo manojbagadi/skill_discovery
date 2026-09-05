@@ -1,177 +1,197 @@
-# 🧠 Skill Discovery Engine — SaaS Architecture
-> **SIH 2026 | UNESCO Young Scientist Expo 2026**
-> 
-> *"We don't tell students what to learn. We make them confess what they already love."*
-> 
-> 📄 **Master Blueprint**: [SIH_Skill_Discovery_Engine_Master_Blueprint.md](file:///home/harsha/sih/SIH_Skill_Discovery_Engine_Master_Blueprint.md)
+# 🚀 Skillcraft — Skill Discovery Engine
+> **Smart India Hackathon 2026 Submission**  
+> *Turning daily habits and hobbies into high-demand computer skills through small experiments, transparent scoring, and zero-guilt learning paths.*
 
 ---
 
-## 🏛️ Architecture Overview
+## 📌 SIH Problem Statement Details
+* **Problem Statement ID:** `SIH26202`
+* **Problem Statement Title:** AI-Driven Skill Discovery & Personalized Career Path Navigation Engine
+* **Organization:** Ministry of Education / AICTE
+* **Category:** Software
+* **Domain Bucket:** Smart Education & Skilling / NEP 2020 Vocational Guidance
+* **Team Name:** **Skillcraft**
 
-This is a **Cognitive Scaffolding Layer** — a constraint architecture that forces any LLM (cloud or local) to operate as a clarity engine rather than a chatbot. The model quality matters less than the structural design.
+---
+
+## 🎯 The Problem & Our Solution
+
+### ❓ The Problem:
+Most first-year college students have never coded before. When asked what computer skill they want to learn, they don't know what to answer. When asked what they do in their free time, they say:
+* *"I scroll Instagram reels and watch YouTube videos"*
+* *"I play mobile games like BGMI"*
+* *"I watch movies and web series"*
+
+Traditional career websites give them a 6-month, 100-hour coding syllabus full of scary jargon. Students get overwhelmed, give up after 3 days, and feel like they are not smart enough for computers.
+
+### 💡 Our Solution:
+Instead of asking hard computer questions, **Skillcraft** asks simple questions about **daily habits, free time, and laptop specs**. 
+
+Our engine translates these real-world habits into computer careers:
+* **Loves Instagram reels / visuals:** Learns **UI/UX Design & Frontend Layouts**.
+* **Plays mobile games / strategizes:** Learns **Game Logic & Python Programming**.
+* **Enjoys movie stories / video editing:** Learns **Digital Media & Creative Tech**.
+* **Tracks sports / cricket statistics:** Learns **Data Analytics & Insights**.
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    OPEN WEBUI (Frontend)                     │
-│              Premium Chat Interface + Agent UI               │
-└──────────────────────┬──────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────────┐
-│              SYSTEM PROMPT (State Machine)                   │
-│   • 6-phase conversation flow                                │
-│   • One-question-at-a-time constraint                        │
-│   • Behavioral archaeology protocol                          │
-│   • Tool-calling orchestration                               │
-└──────────────────────┬──────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────────┐
-│           SKILL DISCOVERY ENGINE (Python Tool)               │
-│   ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│   │  SQLite DB  │  │ Skill Scorer │  │ Rhythm Generator│   │
-│   │  (sessions, │  │ (5-factor    │  │ (Flexible       │   │
-│   │   responses,│  │  weighted    │  │  schedule       │   │
-│   │   hypotheses│  │  scoring)    │  │  contract)      │   │
-│   │   experiments│  │              │  │                 │   │
-│   │   rhythms)  │  │              │  │                 │   │
-│   └─────────────┘  └──────────────┘  └─────────────────┘   │
-│                                                              │
-│   ┌─────────────────────────────────────────────────────┐   │
-│   │           TAXONOMY (37 Skills, 6 Families)           │   │
-│   │  Visual | Frontend | Backend | AI/ML | Content | IoT │   │
-│   └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
+[ Daily Habits & Free Time ] ──► [ Skillcraft Match Engine ] ──► [ 3-Tier Action Cards ]
+(e.g., Gaming, Social Media)     (5-Factor Transparent Score)     (3-Min / 3-Hour / 3-Day Steps)
 ```
 
 ---
 
-## 🎯 The 6-Phase Flow
+## 🔄 The 6-Step Journey (How It Works)
 
-| Phase | Name | What Happens | Tool Used |
-|-------|------|--------------|-----------|
-| 1 | **Onboarding** | 3 behavioral questions (procrastination, flow state, peer help) | `save_response` |
-| 2 | **Domain Filter** | 2 broad questions (creation preference, class preference) | `save_response` |
-| 3 | **Reality Anchor** | 6 constraint questions (time, hardware, energy, past quits) | `save_response` |
-| 4 | **Skill Match** | AI runs deterministic 5-factor scoring on 37 skills | `rank_skill_hypotheses` |
-| 5 | **Experiment Design** | Generate 2-week hypothesis test with scaled tasks | `generate_experiment` |
-| 6 | **Rhythm Build** | Generate flexible rhythm contract with modes | `generate_rhythm` |
-| 7 | **Daily Audit** | Ongoing check-ins with adaptive mode switching | `daily_audit` |
-
----
-
-## 🔬 The 5-Factor Scoring Formula
-
-```
-Overall Score = 
-    0.40 × Interest Fit
-  + 0.20 × Time Fit
-  + 0.15 × Hardware Fit
-  + 0.10 × Experience Fit
-  + 0.15 × Cognitive Fit
-```
-
-| Factor | What It Measures | How |
-|--------|-----------------|-----|
-| **Interest Fit** | Tag overlap between user signals and skill tags | Jaccard similarity × 1.5 boost. Procrastination overlap gets 1.15× bonus |
-| **Time Fit** | Can they produce first output within their daily budget? | `min(100, (daily_min / req_min) × 100)` |
-| **Hardware Fit** | Can their device run the skill? | Mobile=1, Low PC=2, High PC=3. Downgrade penalties applied |
-| **Experience Fit** | Have they tried similar things? | Fresh = 90, Retried = 60 |
-| **Cognitive Fit** | Does the skill match their inferred cognitive profile? | Inferred from behavioral signals vs skill cognitive_profile |
+| Step | What We Call It | What Happens in Simple Words |
+| :---: | :--- | :--- |
+| **1** | **Habit Discovery** | We ask 3 simple questions: What do you open when wasting time? What can you do for 3 hours without getting bored? What do friends ask you to help with? |
+| **2** | **Reality Check** | We check your real constraints: How many minutes can you spare daily? Do you have a slow college laptop, a gaming PC, or only a phone? |
+| **3** | **Skill Match** | Our engine scores 37 computer skills honestly using our 5-Factor formula and ranks the top 3 best fits for you. |
+| **4** | **3-Tier Action Cards** | You get 3 bite-sized steps (3-minute taste, 3-hour build, 3-day project) so you can try the skill right away without reading boring books. |
+| **5** | **The Rhythm Contract** | You choose your mode based on your week: **Beast Mode** (vacation), **Standard Mode** (normal college), or **Recovery Mode** (exams/sick - no penalties!). |
+| **6** | **Review & Pivot** | After 2 weeks, you decide: **Deepen** (you loved it, do more), **Adjust** (keep the design, drop the hard coding), or **Pivot** (switch to skill #2 with zero guilt). |
 
 ---
 
-## 📁 File Structure
+## 🎯 The 5-Factor Scoring Formula
+
+The system never guesses or hallucinates. It calculates a transparent match score (0 to 100) using 5 clear factors:
+
+$$\text{Final Score} = (0.40 \times \text{Interest}) + (0.20 \times \text{Time}) + (0.15 \times \text{Hardware}) + (0.10 \times \text{Beginner Ease}) + (0.15 \times \text{Brain Fit})$$
+
+* **1. Interest Fit (40%):** Does this match what you naturally enjoy doing in your free time?
+* **2. Time Feasibility (20%):** Can you make real progress in your 30 or 45 daily minutes?
+* **3. Hardware Fit (15%):** Will this software run smoothly on your current laptop without lagging?
+* **4. Beginner Ease (10%):** Can a total beginner get their first win today?
+* **5. Brain Fit (15%):** Does this match your thinking style (visual creator, logical problem solver, or numbers person)?
+
+---
+
+## ⚡ The 3-Tier Action Cards
+
+Instead of intimidating 50-hour video courses, every recommendation comes with 3 actionable cards:
 
 ```
-skill-discovery-engine/
-├── backend/
-│   ├── skill_discovery_engine.py    ← The Open WebUI Tool (8 functions)
-│   ├── system_prompt.md             ← The State Machine Prompt
-│   └── taxonomy.json                ← 37-skill knowledge base
-├── README.md                        ← This file
-└── .env                             ← API keys (not committed)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🌟 TIER 1: The 3-Minute Taste                                               │
+│ Zero setup. Change one color on a pre-made Figma button or run 1 line.     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 🛠️ TIER 2: The 3-Hour Project                                               │
+│ Build one real screen or a mini script you can click and interact with.     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 🏆 TIER 3: The 3-Day Sprint                                                 │
+│ Complete a 3-part weekend project to share with friends and put on resume.  │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🚀 Setup Instructions
+## 🔄 The Pivot & Rhythm Contract (Why Students Don't Quit)
 
-### Step 1: Start Open WebUI
+### 1. The Pivot:
+If a student tries a skill for 2 weeks and dislikes it, **they didn't fail**. They learned what they don't like! The system executes a **Pivot**, celebrated as a win, and immediately loads their second-best skill match.
+
+### 2. The Rhythm Contract Modes:
+* 🦁 **Beast Mode (60–90 mins/day):** For weekends or semester breaks.
+* 🚶 **Standard Mode (30 mins/day):** For regular college days.
+* 🛡️ **Maintenance Mode (10 mins/day):** When lab exams or assignments are heavy.
+* 🛌 **Recovery Mode (0 mins/day - PAUSED):** When you have final exams or are sick. **Zero guilt, zero streak penalty.**
+
+---
+
+## 🏆 Why Skillcraft Wins
+
+| Normal Career Websites / Quizzes | Skillcraft Engine |
+| :--- | :--- |
+| Asks 30 long, boring multiple-choice questions | Asks simple, conversational questions about real daily habits |
+| Dumps an overwhelming 6-month roadmap | Gives 3-minute, 3-hour, and 3-day bite-sized action cards |
+| Rigid streak counters (miss 1 day = feel like a failure) | Rhythm Contract with exam-aware Recovery Mode (no penalties) |
+| Forces you to finish even if you hate the subject | 2-week trial followed by Deepen, Adjust, or Pivot |
+| Assumes everyone owns a high-end laptop | Hardware-aware matching (checks if your device can run it) |
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technologies Used | Description |
+| :--- | :--- | :--- |
+| **Frontend** | React 19, Vite, Vanilla CSS Design System | Clean, high-contrast, beginner-friendly UI with zero clutter |
+| **Backend API** | Python 3.11, FastAPI, Uvicorn | High-speed REST API for profile parsing and habit translation |
+| **Database** | SQLite, SQLAlchemy | Lightweight, zero-config relational store for progress and scores |
+| **Scoring & AI Engine** | Python Heuristic Scorer + Google Gemini API | Deterministic 5-factor scoring paired with natural language understanding |
+| **Tooling** | Git, npm, GitHub | Version control and collaborative team workflow |
+
+---
+
+## 🏗️ System Architecture
+
+```
++-------------------------------------------------------------------------+
+|                        Frontend (React 19 Client)                       |
+|           Beginner UI • Habit Questionnaire • 3-Tier Action Cards        |
++------------------------------------+------------------------------------+
+                                     |
+                                     v REST API
++-------------------------------------------------------------------------+
+|                       Backend API (FastAPI Python)                      |
+|                  Request Validation & Session Tracking                  |
++------------------------------------+------------------------------------+
+                                     |
+             +-----------------------+-----------------------+
+             |                                               |
+             v                                               v
++---------------------------+                   +-------------------------+
+| AI & Scoring Engine       |                   | Database & Audit Log    |
+| • Habit-to-Skill Matrix   |                   | • SQLite Store          |
+| • 5-Factor Scorer (0-100) |                   | • User Profiles         |
+| • Gemini Text Clarifier   |                   | • Action Card Progress  |
++---------------------------+                   +-------------------------+
+```
+
+---
+
+## 🚀 Getting Started (Run Locally)
+
+### **Prerequisites**
+* **Node.js** (v18 or higher)
+* **Python** (v3.10 or higher)
+* **Git**
+
+### **1. Clone the repository:**
 ```bash
-docker run -d -p 3000:8080 \
-  --add-host=host.docker.internal:host-gateway \
-  -v open-webui:/app/backend/data \
-  --name open-webui \
-  --restart always \
-  ghcr.io/open-webui/open-webui:main
+git clone https://github.com/manojbagadi/skill_discovery.git
+cd skill_discovery
 ```
-Open `http://localhost:3000` and create your admin account.
 
-### Step 2: Configure LLM API
-Go to **Settings > Connections** and add:
-- **Groq** (recommended): Fast, cheap, supports tool calling
-  - Model: `llama3-70b-8192` or `mixtral-8x7b-32768`
-- **OpenAI**: `gpt-4o-mini` or `gpt-4o`
-- **Together AI**: `meta-llama/Llama-3-70b-chat-hf`
+### **2. Start the Frontend:**
+```bash
+cd frontend
+npm install
+npm run dev
+```
+👉 *Open your browser at `http://localhost:5173`.*
 
-### Step 3: Upload the Tool
-1. Go to **Workspace > Tools**
-2. Click **+**
-3. Copy ALL of `skill_discovery_engine.py`
-4. Name: `SkillDiscoveryEngine`
-5. Save
-
-### Step 4: Create the Agent
-1. Go to **Workspace > Models**
-2. Click **+**
-3. **Name**: `Arya — Skill Discovery Mentor`
-4. **Base Model**: Select your configured model
-5. **System Prompt**: Paste ALL of `system_prompt.md`
-6. **Tools**: Enable `SkillDiscoveryEngine`
-7. **Save**
-
-### Step 5: Test
-Start a chat with `Arya`. Say "Hi". Follow the flow.
+### **3. Start the Backend API (Optional):**
+```bash
+cd ../backend
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+👉 *API will run at `http://localhost:8000` with docs at `http://localhost:8000/docs`.*
 
 ---
 
-## 🧪 Demo Script for Judges
+## 👥 Team Details — Team Skillcraft
 
-**Opening (10 sec):**
-> "Most career apps tell students what to learn. We make them confess what they already love."
-
-**Live Demo (60 sec):**
-1. Ask a judge: "When you procrastinate, what do you open?"
-2. Ask: "What's something you've spent 3 hours on without noticing?"
-3. Ask: "What do people come to you for help with?"
-4. Ask 2-3 more quick questions about time/hardware
-5. Show the ranked skill hypotheses with scores and explanations
-6. Show the 2-week experiment design
-7. Show the Rhythm Contract with modes
-
-**The Pivot (20 sec):**
-> "This isn't a timetable app. This is a clarity engine. And here's the kicker — this same architecture will run my own 100M parameter model in January. Today it's Groq. Tomorrow it's NanoChat Titan."
-
----
-
-## 🏆 Why This Wins
-
-| Competitor Approach | Our Approach |
-|---------------------|--------------|
-| Static skill quiz (20 questions, dump result) | Progressive behavioral archaeology (one question at a time, adaptive) |
-| AI picks the skill for you | AI eliminates wrong options; YOU pick |
-| Rigid timetable (fail once = guilt spiral) | Rhythm Contract with 4 modes (Beast, Standard, Maintenance, Recovery) |
-| One-time recommendation | 2-week experiment + daily audit loop |
-| Generic "learn coding" advice | 37-skill taxonomy with hardware-aware filtering |
-| Prompt engineering on raw LLM | Deterministic scoring engine + state machine |
-
----
----
-
-## 📝 License
-
-MIT — Open source the architecture, open source the model.
-
----
-
-> *"The sword cuts both ways. After January 14, you lose the excuse of 'I don't know.' But you gain the right to hold the sword."*
+* **Team Name:** **Skillcraft** (Smart India Hackathon 2026)
+* **Team Leader:** **B. Manoj** ([GitHub](https://github.com/manojbagadi))
+* **Member 2:** **P. Raghuram** 
+* **Member 3:** **B. Sailaxmi** 
+* **Member 4:** **P. Dharani** 
+* **Member 5:** **ch. Lokteja** 
+* **Member 6:** **B. Harshavardhan** ([GitHub](https://github.com/Harshajaya13))
