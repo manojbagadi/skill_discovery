@@ -151,23 +151,75 @@ seed_db()
 # NATURAL MENTOR FALLBACK (Deterministic & Human-like)
 # ─────────────────────────────────────────────
 KEYWORD_TAG_MAP = {
+    # 1. Video & Motion
+    "reel": ["video_editing", "capcut", "after_effects", "motion"],
+    "short": ["video_editing", "capcut", "after_effects", "motion"],
+    "video": ["video_editing", "capcut", "after_effects", "motion"],
+    "edit": ["video_editing", "capcut", "audio_editing"],
+    "youtube": ["video_editing", "content_creation", "storytelling"],
+    "camera": ["video_editing", "content_creation"],
+
+    # 2. Gaming & Interactive
+    "game": ["game_dev", "3d_modeling", "interactive", "python"],
+    "gaming": ["game_dev", "3d_modeling", "interactive", "python"],
+    "bgmi": ["game_dev", "interactive", "python"],
+    "pubg": ["game_dev", "interactive", "python"],
+    "play": ["game_dev", "interactive"],
+
+    # 3. Programming & Python & Backend
+    "python": ["python", "pandas", "data_analysis", "automation"],
+    "code": ["python", "javascript", "backend", "api_design"],
+    "coding": ["python", "javascript", "backend", "frontend"],
+    "program": ["python", "javascript", "backend"],
+    "script": ["python", "automation", "backend"],
+    "backend": ["backend", "api_design", "sql", "database"],
+    "database": ["sql", "database", "backend"],
+    "sql": ["sql", "database", "data_analysis"],
+
+    # 4. Web & Frontend
+    "web": ["html", "css", "javascript", "responsive_design"],
+    "website": ["html", "css", "javascript", "frontend"],
+    "frontend": ["react", "javascript", "html", "css"],
+    "react": ["react", "javascript", "frontend", "ui_components"],
+    "html": ["html", "css", "responsive_design"],
+
+    # 5. Data & AI
+    "data": ["data_analysis", "python", "pandas", "sql"],
+    "cricket": ["data_analysis", "python", "visualization", "stats"],
+    "stats": ["data_analysis", "python", "pandas", "visualization"],
+    "ai": ["machine_learning", "ai", "python", "deep_learning"],
+    "ml": ["machine_learning", "ai", "python"],
+    "excel": ["data_analysis", "sql", "automation"],
+    "math": ["data_analysis", "machine_learning", "python"],
+
+    # 6. Writing, Stories & Content
+    "story": ["storytelling", "content_creation", "technical_writing"],
+    "write": ["technical_writing", "documentation", "storytelling"],
+    "writing": ["technical_writing", "documentation", "communication"],
+    "read": ["content_creation", "technical_writing", "documentation"],
+    "anime": ["storytelling", "visual_layout", "3d_modeling"],
+    "movie": ["storytelling", "video_editing", "audio_editing"],
+
+    # 7. Hardware & IoT
+    "robot": ["robotics", "arduino", "hardware", "embedded"],
+    "arduino": ["arduino", "iot", "electronics", "embedded"],
+    "iot": ["iot", "arduino", "networking", "embedded"],
+    "hardware": ["hardware", "electronics", "arduino"],
+    "circuit": ["electronics", "pcb_design", "hardware"],
+
+    # 8. Design & Visual Arts
     "figma": ["figma", "ui_components", "wireframing"],
     "design": ["visual_layout", "figma", "ui_components"],
-    "draw": ["visual_layout", "canva", "storyboarding"],
-    "anime": ["storyboarding", "visual_layout", "content_writing"],
-    "movie": ["storyboarding", "content_writing", "audio_editing"],
-    "video": ["video_editing", "storyboarding", "content_writing"],
-    "youtube": ["content_writing", "video_editing"],
-    "game": ["game_dev", "3d_modeling", "python"],
-    "code": ["python", "javascript", "debugging"],
-    "python": ["python", "automation", "data_analysis"],
-    "web": ["html", "css", "javascript", "frontend"],
-    "write": ["content_writing", "technical_writing", "documentation"],
-    "math": ["data_analysis", "python", "machine_learning"],
-    "excel": ["data_analysis", "automation", "sql"],
-    "music": ["audio_editing", "creative_computing"],
-    "phone": ["mobile_only", "content_writing", "canva"],
-    "laptop": ["low_spec_pc", "python", "frontend"]
+    "draw": ["visual_layout", "canva", "storytelling"],
+    "art": ["visual_layout", "canva", "3d_modeling"],
+    "poster": ["visual_layout", "poster_formatting", "canva"],
+
+    # 9. Introspection & Human Psychology
+    "think": ["user_research", "documentation", "storyboarding"],
+    "thought": ["user_research", "documentation", "storyboarding"],
+    "waste": ["storyboarding", "content_creation", "canva"],
+    "reflect": ["user_research", "technical_writing", "documentation"],
+    "curious": ["data_analysis", "user_research", "python"]
 }
 
 def extract_tags_human_heuristic(answers: List[str]) -> schemas.LearnerEvidenceVector:

@@ -283,12 +283,25 @@ export default function App() {
     const allUserText = chatHistory.filter(m => m.role === 'user').map(m => m.text).join(" ");
     const matched = selectedHypothesis || mapHabitToComputerSkill(allUserText || "reels");
 
+    // Gather real tags to score against
+    let tagsToScore = [];
+    if (evidenceVector?.interest_tags && evidenceVector.interest_tags.length > 0) {
+      tagsToScore.push(...evidenceVector.interest_tags);
+    }
+    if (matched?.skill_id) {
+      tagsToScore.push(matched.skill_id);
+    }
+    if (allUserText) {
+      const words = allUserText.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+      tagsToScore.push(...words);
+    }
+
     try {
       const scored = await scoreHypotheses({
         institution_id: 1,
-        interest_tags: [matched.skill_id],
-        procrastination_anchors: [matched.habit_detected],
-        perceived_strengths: [matched.hidden_strength],
+        interest_tags: Array.from(new Set(tagsToScore)),
+        procrastination_anchors: [matched.habit_detected || "exploring"],
+        perceived_strengths: [matched.hidden_strength || "problem solving"],
         daily_available_minutes: capacityData.daily_available_minutes,
         hardware_level: capacityData.hardware_level
       });

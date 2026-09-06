@@ -54,9 +54,12 @@ def evaluate_all_skills(evidence: schemas.LearnerEvidenceVector, db: Session) ->
             models.Tag.skill_id == skill.skill_id,
             models.Tag.is_approved == True
         ).all()
-        skill_tags = set([t.tag_name for t in db_tags])
+        skill_tags = set([t.tag_name.lower() for t in db_tags])
+        skill_tags.add(skill.skill_id.lower())
+        skill_tags.update([w.lower() for w in skill.name.split() if len(w) > 2])
         
-        i_score = compute_interest_score(user_tags, skill_tags, config.cold_start_interest)
+        user_tags_lower = set(str(t).lower() for t in user_tags)
+        i_score = compute_interest_score(user_tags_lower, skill_tags, config.cold_start_interest)
         t_score = compute_time_score(evidence.daily_available_minutes, skill.time_to_first_output, config.cold_start_time)
         h_score = compute_hardware_score(evidence.hardware_level, skill.min_hardware, hw_matrix, config.cold_start_hardware)
         
