@@ -138,9 +138,28 @@ export default function HypothesisScoreCard({
           </div>
         </div>
 
-        <p className="text-xs text-slate-600 mt-4 leading-relaxed italic border-t border-blue-100 pt-3">
-          "{hypothesis.explanation}"
-        </p>
+        {/* Why this was chosen */}
+        <div className="mt-4 pt-3 border-t border-blue-100 text-left">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-blue-800 mb-1">
+            <CheckCircle2 className="w-4 h-4 text-blue-600" />
+            <span>Why This Skill Was Chosen For You:</span>
+          </div>
+          <p className="text-xs text-slate-700 leading-relaxed">
+            {hypothesis.explanation}
+          </p>
+        </div>
+
+        {/* Real-Life Industry Example */}
+        {hypothesis.real_life_example && (
+          <div className="mt-3 p-3.5 rounded-xl bg-white border border-indigo-200 text-left shadow-2xs">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-indigo-700 mb-1">
+              <span>🌟 Real-Life Example:</span>
+            </div>
+            <p className="text-xs text-slate-700 leading-relaxed font-medium">
+              {hypothesis.real_life_example}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* 3. THREE METRIC PILLARS */}
