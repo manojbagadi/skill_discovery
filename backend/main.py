@@ -207,19 +207,23 @@ KEYWORD_TAG_MAP = {
     "hardware": ["hardware", "electronics", "arduino"],
     "circuit": ["electronics", "pcb_design", "hardware"],
 
-    # 8. Design & Visual Arts
+    # 8. Design & Visual Arts (Strictly for Figma, Wireframes & UI)
     "figma": ["figma", "ui_components", "wireframing"],
-    "design": ["visual_layout", "figma", "ui_components"],
+    "wireframe": ["figma", "ui_components", "wireframing"],
+    "ui": ["ui_components", "figma", "wireframing"],
+    "ux": ["user_research", "ui_components", "wireframing"],
+    "design": ["visual_layout", "figma", "canva"],
     "draw": ["visual_layout", "canva", "storytelling"],
     "art": ["visual_layout", "canva", "3d_modeling"],
     "poster": ["visual_layout", "poster_formatting", "canva"],
 
-    # 9. Introspection & Human Psychology
-    "think": ["user_research", "documentation", "storyboarding"],
-    "thought": ["user_research", "documentation", "storyboarding"],
-    "waste": ["storyboarding", "content_creation", "canva"],
-    "reflect": ["user_research", "technical_writing", "documentation"],
-    "curious": ["data_analysis", "user_research", "python"]
+    # 9. Introspection & Thought Organization (Maps to Technical Writing & Documentation)
+    "think": ["technical_writing", "documentation", "storytelling"],
+    "thought": ["technical_writing", "documentation", "storytelling"],
+    "waste": ["technical_writing", "documentation"],
+    "myself": ["technical_writing", "documentation"],
+    "reflect": ["technical_writing", "documentation"],
+    "curious": ["data_analysis", "python", "technical_writing"]
 }
 
 def extract_tags_human_heuristic(answers: List[str]) -> schemas.LearnerEvidenceVector:

@@ -274,6 +274,23 @@ function mapHabitToComputerSkill(text = "") {
   };
 }
 
+const REAL_LIFE_EXAMPLES = {
+  vis_01: "Think about Swiggy, Uber, or Spotify: every smooth 2-tap ordering flow was created by a UI/UX designer analyzing human behavior in Figma!",
+  vis_02: "Top brands like Airbnb and Apple use design systems so all buttons, colors, and typography look consistent across every screen.",
+  vis_04: "Figma auto-layout allows buttons to automatically resize when text changes, saving thousands of hours for web and mobile design teams.",
+  vis_07: "Top creators like MrBeast or Indian finance YouTubers turn raw footage into viral 30-second shorts using CapCut and Premiere. You already have the audience eye—now you learn the editing tools!",
+  prog_04: "Game studios like Supercell (Clash of Clans) or indie creators code player physics, collision boxes, and cooldown loops using Python & Pygame!",
+  front_01: "Every college fest, local business, or hackathon team needs a live landing page that works on phones and laptops. You can build responsive websites using HTML & CSS!",
+  front_03: "Instagram and Netflix web apps are built with React component architecture so content updates instantly without refreshing the page.",
+  back_01: "Instead of manually downloading 50 exam papers or sending individual emails, a 20-line Python script can automate it in 3 seconds. That is the exact automation tech startups hire engineers for!",
+  ai_01: "IPL teams like CSK and Mumbai Indians hire data analysts to calculate bowler economy rates and match probabilities. You can build your own live cricket data charts using Python!",
+  ai_02: "Netflix recommendation carousels and Spotify Discover Weekly use machine learning algorithms to predict what you will enjoy next.",
+  content_01: "Every major tech company like Notion, Stripe, and Google pays Documentation Specialists and Technical Writers to turn complex internal ideas into structured digital knowledge.",
+  content_02: "Anime studios, webtoon creators, and game writers format scenes using 3-act storyboards and screenplays. You can turn your viewing intuition into formatted scripts using WriterDuet!",
+  content_05: "Startup founders and TEDx speakers use presentation design principles to pitch million-dollar ideas with clean visual slides.",
+  hw_01: "Automatic toll gates (Fastag) and smart home lights use simple Arduino sensors and C/Python code. You can wire up your first breadboard circuit and light up LEDs with code!"
+};
+
 export default function App() {
   const [currentPhase, setCurrentPhase] = useState(1);
   const [chatHistory, setChatHistory] = useState(INITIAL_CHAT);
@@ -281,6 +298,7 @@ export default function App() {
   const [evidenceVector, setEvidenceVector] = useState(null);
 
   const [selectedHypothesis, setSelectedHypothesis] = useState(null);
+  const [rankedHypotheses, setRankedHypotheses] = useState([]);
   const [plan, setPlan] = useState(null);
   const [completedDays, setCompletedDays] = useState({ 1: true });
   const [activeTimerTask, setActiveTimerTask] = useState(null);
@@ -293,6 +311,7 @@ export default function App() {
     setChatHistory(INITIAL_CHAT);
     setEvidenceVector(null);
     setSelectedHypothesis(null);
+    setRankedHypotheses([]);
     setPlan(null);
     setCompletedDays({ 1: true });
     setActiveTimerTask(null);
@@ -410,16 +429,23 @@ export default function App() {
       });
 
       if (scored && scored.length > 0) {
-        setSelectedHypothesis({
-          ...scored[0],
+        // Enrich top 3 scored skills with real-life examples and habit bridges
+        const enriched = scored.map((s, idx) => ({
+          ...s,
           habit_detected: matched.habit_detected,
           hidden_strength: matched.hidden_strength,
-          fallback_tasks: matched.tasks
-        });
+          real_life_example: REAL_LIFE_EXAMPLES[s.skill_id] || matched.real_life_example,
+          tasks: matched.skill_id === s.skill_id ? matched.tasks : null
+        }));
+
+        setRankedHypotheses(enriched);
+        setSelectedHypothesis(enriched[0]);
       } else {
         throw new Error("Fallback required");
       }
     } catch (err) {
+      const fallbackList = [matched];
+      setRankedHypotheses(fallbackList);
       setSelectedHypothesis({
         ...matched,
         daily_available_minutes: capacityData.daily_available_minutes,
@@ -642,11 +668,55 @@ export default function App() {
 
         {/* STEP 4: Matched Skill Score Card (Hobby to Skill Bridge) */}
         {currentPhase === 4 && (
-          <div className="w-full">
+          <div className="w-full space-y-4">
+            {/* Top 3 Alternative Evaluated Skills Bar */}
+            {rankedHypotheses && rankedHypotheses.length > 1 && (
+              <div className="w-full max-w-4xl mx-auto clean-card p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-gradient-to-r from-slate-50 to-blue-50/40 border border-slate-200 shadow-2xs">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                  <span className="text-xs font-bold text-slate-800">
+                    Top {rankedHypotheses.length} Evaluated Matches For You:
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  {rankedHypotheses.map((hypo, idx) => {
+                    const isSelected = selectedHypothesis?.skill_id === hypo.skill_id;
+                    return (
+                      <button
+                        key={hypo.skill_id || idx}
+                        type="button"
+                        onClick={() => {
+                          setSelectedHypothesis(hypo);
+                          setPlan({
+                            hypothesis_id: hypo.skill_id,
+                            template_version: 1,
+                            tasks: hypo.tasks || hypo.fallback_tasks
+                          });
+                        }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                          isSelected
+                            ? 'bg-blue-600 text-white shadow-xs'
+                            : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                        }`}
+                      >
+                        <span className="opacity-80">#{idx + 1}</span>
+                        <span>{hypo.skill_name}</span>
+                        <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${
+                          isSelected ? 'bg-blue-700 text-blue-100' : 'bg-slate-100 text-slate-600'
+                        }`}>
+                          {Math.round(hypo.overall_score || 90)}%
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             <HypothesisScoreCard
-              hypothesis={selectedHypothesis || mapHabitToComputerSkill("reels")}
+              hypothesis={selectedHypothesis || (rankedHypotheses[0] || mapHabitToComputerSkill("reels"))}
               onAccept={handleAcceptHypothesis}
-              onReject={() => setCurrentPhase(1)}
+              onReject={() => setCurrentPhase(2)}
               loading={loading}
             />
           </div>
