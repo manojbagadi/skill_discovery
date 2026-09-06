@@ -67,6 +67,13 @@ def evaluate_all_skills(evidence: schemas.LearnerEvidenceVector, db: Session) ->
         raw_t_score = t_score / config.cold_start_time if config.cold_start_time else 0
         raw_h_score = h_score / config.cold_start_hardware if config.cold_start_hardware else 0
         
+        matched = list(user_tags.intersection(skill_tags))
+        if matched:
+            matched_str = ", ".join(matched[:3])
+            expl = f"Strong match with your natural interest in {matched_str}. Fits comfortably within your {evidence.daily_available_minutes}-minute daily window and runs smoothly on your hardware."
+        else:
+            expl = f"Well-suited starter skill for your profile. Designed for quick hands-on outputs with low entry friction."
+
         results.append(
             schemas.SkillHypothesisScore(
                 institution_id=institution_id,
@@ -79,7 +86,7 @@ def evaluate_all_skills(evidence: schemas.LearnerEvidenceVector, db: Session) ->
                 time_score=raw_t_score,
                 hardware_score=raw_h_score,
                 experiment_evidence_score=0.0,
-                explanation=f"Based on real DB taxonomy v{skill.version} and weights v{config.version}. Intersected tags: {list(user_tags.intersection(skill_tags))}"
+                explanation=expl
             )
         )
     

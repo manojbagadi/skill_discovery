@@ -53,12 +53,15 @@ export default function Navbar({ onResetSession }) {
               </h1>
               {/* Simple badge indicating hackathon edition */}
               <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                SIH 2026
+                SIH26202
+              </span>
+              <span className="hidden sm:inline-block text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                Team Skillcraft • ANITS
               </span>
             </div>
             {/* Plain English Subtitle */}
             <p className="text-xs text-slate-500 font-medium">
-              Find the practical tech skill you will actually enjoy learning
+              Student Skill Discovery & Micro-Experimentation Platform
             </p>
           </div>
         </div>
