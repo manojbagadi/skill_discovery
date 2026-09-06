@@ -527,6 +527,27 @@ export default function App() {
               </div>
             </div>
 
+            {/* Quick 3-Step Practical Instruction Guide */}
+            <div className="clean-card p-4 bg-blue-50/70 border border-blue-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-700">
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-blue-800 text-sm">💡 How this works:</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full text-xs font-medium text-slate-800">
+                <div className="flex items-start gap-2">
+                  <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[11px] flex items-center justify-center shrink-0">1</span>
+                  <span><strong>Pick your task:</strong> Select your daily pace (15m, 45m, or 90m).</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[11px] flex items-center justify-center shrink-0">2</span>
+                  <span><strong>Build in real tools:</strong> Open Figma, VS Code, or Canva on your PC. Click <em>Start Focus Timer</em>.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[11px] flex items-center justify-center shrink-0">3</span>
+                  <span><strong>Log proof:</strong> Return here, upload your screenshot, and rate how it felt!</span>
+                </div>
+              </div>
+            </div>
+
             {/* 5-Day Tiered Action Task Cards */}
             <div className="space-y-4">
               {(plan?.tasks || (selectedHypothesis || mapHabitToComputerSkill("reels")).tasks).map((task) => (
@@ -559,54 +580,101 @@ export default function App() {
         {currentPhase === 6 && (
           <div className="w-full">
             {decisionFeedback ? (
-              <div className="w-full max-w-2xl mx-auto clean-card p-8 text-center">
-                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
+              <div className="w-full max-w-3xl mx-auto clean-card p-6 sm:p-8 text-center">
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 ${
+                  decisionFeedback.type === 'deepen' ? 'bg-emerald-100 text-emerald-700' :
+                  decisionFeedback.type === 'adjust' ? 'bg-indigo-100 text-indigo-700' : 'bg-rose-100 text-rose-700'
+                }`}>
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-extrabold text-slate-900 mb-2">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
                   {decisionFeedback.title}
                 </h3>
-                <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+                <p className="text-sm text-slate-600 mb-6 leading-relaxed max-w-xl mx-auto">
                   {decisionFeedback.message}
                 </p>
-                <div className="flex items-center justify-center gap-3">
+
+                {/* SPECIAL DEEPEN MASTERY ROADMAP */}
+                {decisionFeedback.type === 'deepen' && (
+                  <div className="text-left bg-slate-50 rounded-xl p-5 border border-slate-200 mb-6 space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+                      <div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                          Next Stage: 30-Day Intermediate Track
+                        </span>
+                        <h4 className="text-base font-bold text-slate-900 mt-1">
+                          Recommended Capstone: Multi-Screen Portfolio Project
+                        </h4>
+                      </div>
+                      <span className="hidden sm:inline-block text-xs font-semibold px-2.5 py-1 bg-white border border-slate-200 rounded-lg text-slate-600">
+                        Pace: 45m / day
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                      <div className="p-3 bg-white rounded-lg border border-slate-200 shadow-xs">
+                        <span className="font-bold text-blue-700 block mb-1">Week 1-2: Architecture</span>
+                        <p className="text-slate-600">Master reusable design tokens, auto-layout hierarchies, and standard UI patterns.</p>
+                      </div>
+                      <div className="p-3 bg-white rounded-lg border border-slate-200 shadow-xs">
+                        <span className="font-bold text-emerald-700 block mb-1">Week 3: Prototype</span>
+                        <p className="text-slate-600">Build a complete 5-screen interactive user journey solving a campus problem.</p>
+                      </div>
+                      <div className="p-3 bg-white rounded-lg border border-slate-200 shadow-xs">
+                        <span className="font-bold text-purple-700 block mb-1">Week 4: Proof & Review</span>
+                        <p className="text-slate-600">Conduct user tests with 3 peers. Export a polished case study for your resume.</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-slate-600">
+                      <div className="flex items-center gap-1.5 font-medium">
+                        <span>🤝 <strong>Peer Match Opportunity:</strong> Pair with a developer classmate to build your designs into code!</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex flex-wrap items-center justify-center gap-3">
                   <button
                     type="button"
                     onClick={() => handleResetSession()}
-                    className="btn-primary flex items-center gap-2"
+                    className="btn-primary flex items-center gap-2 text-xs"
                   >
                     <RotateCcw className="w-4 h-4" />
-                    <span>Test Another Skill</span>
+                    <span>Explore Another Track</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setCurrentPhase(5)}
-                    className="btn-secondary"
+                    className="btn-secondary text-xs"
                   >
-                    Back to Project
+                    Review Completed 5-Day Tasks
                   </button>
                 </div>
               </div>
             ) : (
               <ReviewDecisionModal
-                skillName={selectedHypothesis?.skill_name || "Video Editing & Motion Graphics"}
-                completedDays={Object.values(completedDays).filter(Boolean).length}
+                skillName={selectedHypothesis?.skill_name || "UI/UX Fundamentals & Wireframing"}
+                completedDays={Object.values(completedDays).filter(Boolean).length || 5}
                 onDeepen={() => {
                   setDecisionFeedback({
+                    type: "deepen",
                     title: "🎉 Deepen Path Confirmed!",
-                    message: "Awesome job! You felt high natural flow during your trial. We've recorded your choice to commit to the 30-day mastery curriculum with portfolio milestones."
+                    message: `You proved genuine intrinsic interest in ${selectedHypothesis?.skill_name || "this skill"}! Here is your structured 30-day intermediate roadmap to convert this early spark into an employable portfolio piece:`
                   });
                 }}
                 onAdjust={() => {
                   setDecisionFeedback({
-                    title: "⚙️ Path Adjusted to 15-Min Mode!",
-                    message: "Smart decision! You liked the skill but need a lighter pace. Your daily tasks are now adjusted to the 15-minute Minimum Viable Action tier to avoid burnout."
+                    type: "adjust",
+                    title: "⚙️ Path Adjusted to 15-Minute Mode!",
+                    message: "Smart decision! You liked the skill but need a lighter pace to balance with college exams. Your tasks are now tuned to the Minimum Viable Action tier to avoid burnout."
                   });
                 }}
                 onPivot={() => {
                   setDecisionFeedback({
+                    type: "pivot",
                     title: "🔄 Pivot Executed with Zero Guilt!",
-                    message: "Congratulations on discovering what you don't enjoy early! That saves months of wasted time. Click below to test your #2 ranked skill immediately."
+                    message: "Discovering what you don't enjoy early is a huge victory! It saves you months of frustration. You can explore your next ranked skill right now."
                   });
                 }}
               />
