@@ -11,12 +11,16 @@ import React from 'react';
  */
 
 const EVERYDAY_STUDENT_HABITS = [
-  "📱 Scrolling Instagram Reels & YouTube Shorts",
-  "🎮 Playing BGMI / Free Fire / PC Games",
-  "🍿 Watching Anime, Movies & Netflix series",
-  "🏏 Playing Cricket & Tracking Match Scores",
-  "📸 Taking Photos, Selfies & Editing Filters",
-  "💻 Browsing Websites, Apps & Tech Gadgets"
+  "🧠 Continuously overthinking & wasting time in my room",
+  "📱 Scrolling Instagram Reels & YouTube Shorts for hours",
+  "🎮 Grinding BGMI with my squad every night",
+  "🍿 Binge-watching Anime & Netflix series all night",
+  "🏏 Checking IPL cricket stats & Dream11 scores",
+  "⚡ Hating manual work & searching for shortcuts / scripts",
+  "🛠️ Tinkering with gadgets, wires & opening circuits",
+  "🥱 Lying in bed doing nothing / feeling lazy",
+  "📸 Taking aesthetic photos & making Canva posters",
+  "🎨 Designing app screens & wireframes in Figma"
 ];
 
 export default function QuickResponseChips({ 

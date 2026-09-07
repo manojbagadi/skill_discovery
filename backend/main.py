@@ -148,83 +148,181 @@ def seed_db():
 seed_db()
 
 # ─────────────────────────────────────────────
-# NATURAL MENTOR FALLBACK (Deterministic & Human-like)
+# NATURAL MENTOR HEURISTIC (1000+ Student Mindset Modeling)
 # ─────────────────────────────────────────────
 KEYWORD_TAG_MAP = {
-    # 1. Video & Motion
+    # 1. Video, Reels, Shorts & Social Media
     "reel": ["video_editing", "capcut", "after_effects", "motion"],
+    "reels": ["video_editing", "capcut", "after_effects", "motion"],
     "short": ["video_editing", "capcut", "after_effects", "motion"],
+    "shorts": ["video_editing", "capcut", "after_effects", "motion"],
+    "instagram": ["video_editing", "capcut", "motion", "content_creation"],
+    "insta": ["video_editing", "capcut", "motion"],
+    "tiktok": ["video_editing", "capcut", "motion"],
+    "scroll": ["video_editing", "capcut", "motion"],
+    "scrolling": ["video_editing", "capcut", "motion"],
     "video": ["video_editing", "capcut", "after_effects", "motion"],
+    "videos": ["video_editing", "capcut", "after_effects", "motion"],
     "edit": ["video_editing", "capcut", "audio_editing"],
+    "editing": ["video_editing", "capcut", "audio_editing"],
     "youtube": ["video_editing", "content_creation", "storytelling"],
-    "camera": ["video_editing", "content_creation"],
+    "meme": ["video_editing", "content_creation", "visual_layout"],
+    "memes": ["video_editing", "content_creation", "visual_layout"],
 
-    # 2. Gaming & Interactive
+    # 2. Competitive Gaming & Esports
     "game": ["game_dev", "3d_modeling", "interactive", "python"],
+    "games": ["game_dev", "3d_modeling", "interactive", "python"],
     "gaming": ["game_dev", "3d_modeling", "interactive", "python"],
     "bgmi": ["game_dev", "interactive", "python"],
     "pubg": ["game_dev", "interactive", "python"],
+    "free fire": ["game_dev", "interactive", "python"],
+    "freefire": ["game_dev", "interactive", "python"],
+    "valorant": ["game_dev", "interactive", "python"],
+    "gta": ["game_dev", "3d_modeling", "interactive"],
+    "playstation": ["game_dev", "interactive", "3d_modeling"],
+    "cod": ["game_dev", "interactive", "python"],
+    "clutch": ["game_dev", "interactive"],
+    "squad": ["game_dev", "interactive"],
     "play": ["game_dev", "interactive"],
 
-    # 3. Programming & Python & Backend
-    "python": ["python", "pandas", "data_analysis", "automation"],
-    "code": ["python", "javascript", "backend", "api_design"],
-    "coding": ["python", "javascript", "backend", "frontend"],
-    "program": ["python", "javascript", "backend"],
+    # 3. Introspection, Overthinking & Deep Mental Processing (Maps to Technical Writing & Thought Architecture)
+    "think": ["technical_writing", "documentation", "storytelling"],
+    "thinking": ["technical_writing", "documentation", "storytelling"],
+    "thought": ["technical_writing", "documentation", "storytelling"],
+    "thoughts": ["technical_writing", "documentation", "storytelling"],
+    "overthink": ["technical_writing", "documentation", "storytelling"],
+    "overthinking": ["technical_writing", "documentation", "storytelling"],
+    "waste": ["technical_writing", "documentation", "storytelling"],
+    "wasting": ["technical_writing", "documentation", "storytelling"],
+    "myself": ["technical_writing", "documentation", "storytelling"],
+    "me": ["technical_writing", "documentation"],
+    "alone": ["technical_writing", "documentation"],
+    "mind": ["technical_writing", "documentation"],
+    "daydream": ["technical_writing", "storytelling"],
+    "reflect": ["technical_writing", "documentation"],
+    "anxious": ["technical_writing", "documentation"],
+    "future": ["technical_writing", "documentation"],
+
+    # 4. Binge-Watching, Anime, Movies & Narrative Fiction
+    "anime": ["storytelling", "content_creation", "technical_writing"],
+    "naruto": ["storytelling", "content_creation"],
+    "manga": ["storytelling", "content_creation"],
+    "netflix": ["storytelling", "content_creation", "video_editing"],
+    "movie": ["storytelling", "video_editing", "content_creation"],
+    "movies": ["storytelling", "video_editing", "content_creation"],
+    "series": ["storytelling", "content_creation"],
+    "kdrama": ["storytelling", "content_creation"],
+    "k-drama": ["storytelling", "content_creation"],
+    "story": ["storytelling", "content_creation", "technical_writing"],
+    "stories": ["storytelling", "content_creation", "technical_writing"],
+    "cinema": ["storytelling", "video_editing"],
+
+    # 5. Sports, Cricket, IPL, Fantasy & Stock Market Numbers
+    "cricket": ["data_analysis", "python", "pandas", "visualization"],
+    "ipl": ["data_analysis", "python", "pandas", "visualization"],
+    "csk": ["data_analysis", "python", "pandas"],
+    "rcb": ["data_analysis", "python", "pandas"],
+    "stats": ["data_analysis", "python", "pandas", "visualization"],
+    "statistics": ["data_analysis", "python", "pandas"],
+    "score": ["data_analysis", "python", "pandas"],
+    "scores": ["data_analysis", "python", "pandas"],
+    "dream11": ["data_analysis", "python", "pandas"],
+    "football": ["data_analysis", "python", "visualization"],
+    "stock": ["data_analysis", "python", "pandas", "sql"],
+    "stocks": ["data_analysis", "python", "pandas", "sql"],
+    "market": ["data_analysis", "python", "pandas"],
+    "crypto": ["data_analysis", "python", "backend"],
+    "excel": ["data_analysis", "sql", "automation"],
+    "math": ["data_analysis", "machine_learning", "python"],
+    "numbers": ["data_analysis", "python", "pandas"],
+
+    # 6. Automation, Shortcuts & Backend Logic
+    "automate": ["automation", "python", "backend", "api_design"],
+    "automation": ["automation", "python", "backend", "api_design"],
+    "shortcut": ["automation", "python", "backend"],
+    "shortcuts": ["automation", "python", "backend"],
     "script": ["python", "automation", "backend"],
+    "bot": ["python", "automation", "backend", "api_design"],
+    "crawler": ["web_scraping", "python", "automation"],
+    "python": ["python", "pandas", "data_analysis", "automation"],
     "backend": ["backend", "api_design", "sql", "database"],
     "database": ["sql", "database", "backend"],
     "sql": ["sql", "database", "data_analysis"],
+    "code": ["python", "javascript", "backend", "api_design"],
+    "coding": ["python", "javascript", "backend", "frontend"],
 
-    # 4. Web & Frontend
-    "web": ["html", "css", "javascript", "responsive_design"],
-    "website": ["html", "css", "javascript", "frontend"],
-    "frontend": ["react", "javascript", "html", "css"],
-    "react": ["react", "javascript", "frontend", "ui_components"],
-    "html": ["html", "css", "responsive_design"],
-
-    # 5. Data & AI
-    "data": ["data_analysis", "python", "pandas", "sql"],
-    "cricket": ["data_analysis", "python", "visualization", "stats"],
-    "stats": ["data_analysis", "python", "pandas", "visualization"],
-    "ai": ["machine_learning", "ai", "python", "deep_learning"],
-    "ml": ["machine_learning", "ai", "python"],
-    "excel": ["data_analysis", "sql", "automation"],
-    "math": ["data_analysis", "machine_learning", "python"],
-
-    # 6. Writing, Stories & Content
-    "story": ["storytelling", "content_creation", "technical_writing"],
-    "write": ["technical_writing", "documentation", "storytelling"],
-    "writing": ["technical_writing", "documentation", "communication"],
-    "read": ["content_creation", "technical_writing", "documentation"],
-    "anime": ["storytelling", "visual_layout", "3d_modeling"],
-    "movie": ["storytelling", "video_editing", "audio_editing"],
-
-    # 7. Hardware & IoT
+    # 7. Hardware, Gadgets, Tinkering & IoT
     "robot": ["robotics", "arduino", "hardware", "embedded"],
+    "robots": ["robotics", "arduino", "hardware", "embedded"],
     "arduino": ["arduino", "iot", "electronics", "embedded"],
     "iot": ["iot", "arduino", "networking", "embedded"],
     "hardware": ["hardware", "electronics", "arduino"],
     "circuit": ["electronics", "pcb_design", "hardware"],
+    "circuits": ["electronics", "pcb_design", "hardware"],
+    "gadget": ["electronics", "arduino", "hardware"],
+    "gadgets": ["electronics", "arduino", "hardware"],
+    "remote": ["electronics", "hardware", "arduino"],
+    "wire": ["electronics", "hardware", "arduino"],
+    "sensor": ["iot", "arduino", "hardware"],
+    "sensors": ["iot", "arduino", "hardware"],
+    "drone": ["robotics", "hardware", "embedded"],
 
-    # 8. Design & Visual Arts (Strictly for Figma, Wireframes & UI)
-    "figma": ["figma", "ui_components", "wireframing"],
-    "wireframe": ["figma", "ui_components", "wireframing"],
-    "ui": ["ui_components", "figma", "wireframing"],
-    "ux": ["user_research", "ui_components", "wireframing"],
-    "design": ["visual_layout", "figma", "canva"],
+    # 8. Web & Frontend
+    "web": ["html", "css", "javascript", "responsive_design"],
+    "website": ["html", "css", "javascript", "frontend"],
+    "websites": ["html", "css", "javascript", "frontend"],
+    "frontend": ["react", "javascript", "html", "css"],
+    "react": ["react", "javascript", "frontend", "ui_components"],
+    "html": ["html", "css", "responsive_design"],
+    "css": ["html", "css", "responsive_design"],
+
+    # 9. Low Energy, Procrastination & "Doing Nothing"
+    "lazy": ["technical_writing", "documentation"],
+    "nothing": ["technical_writing", "documentation"],
+    "sleep": ["technical_writing", "documentation"],
+    "sleeping": ["technical_writing", "documentation"],
+    "bed": ["technical_writing", "documentation"],
+    "bored": ["technical_writing", "documentation"],
+    "procrastinate": ["technical_writing", "documentation"],
+    "procrastinating": ["technical_writing", "documentation"],
+
+    # 10. Photography, Doodling & Brand Aesthetics
+    "photo": ["visual_layout", "canva", "design_tokens"],
+    "photos": ["visual_layout", "canva", "design_tokens"],
+    "photography": ["visual_layout", "canva"],
+    "lightroom": ["visual_layout", "canva"],
     "draw": ["visual_layout", "canva", "storytelling"],
+    "drawing": ["visual_layout", "canva"],
+    "sketch": ["visual_layout", "canva"],
     "art": ["visual_layout", "canva", "3d_modeling"],
     "poster": ["visual_layout", "poster_formatting", "canva"],
+    "canva": ["visual_layout", "poster_formatting", "canva"],
+    "aesthetic": ["visual_layout", "design_tokens", "canva"],
 
-    # 9. Introspection & Thought Organization (Maps to Technical Writing & Documentation)
-    "think": ["technical_writing", "documentation", "storytelling"],
-    "thought": ["technical_writing", "documentation", "storytelling"],
-    "waste": ["technical_writing", "documentation"],
-    "myself": ["technical_writing", "documentation"],
-    "reflect": ["technical_writing", "documentation"],
-    "curious": ["data_analysis", "python", "technical_writing"]
+    # 11. Audio & Music
+    "music": ["audio_editing", "video_editing"],
+    "songs": ["audio_editing", "video_editing"],
+    "spotify": ["audio_editing", "content_creation"],
+    "headphone": ["audio_editing", "video_editing"],
+    "headphones": ["audio_editing", "video_editing"],
+
+    # 12. Cybersecurity & System Tinkering
+    "hack": ["cybersecurity", "linux", "backend"],
+    "hacking": ["cybersecurity", "linux", "backend"],
+    "cyber": ["cybersecurity", "linux", "backend"],
+    "cybersecurity": ["cybersecurity", "linux", "backend"],
+    "kali": ["linux", "cybersecurity", "debugging"],
+    "linux": ["linux", "backend", "debugging"],
+
+    # 13. UI/UX & Wireframing (RESERVED STRICTLY FOR EXPLICIT FIGMA / UI / WIREFRAME INPUTS)
+    "figma": ["figma", "ui_components", "wireframing"],
+    "wireframe": ["figma", "ui_components", "wireframing"],
+    "wireframing": ["figma", "ui_components", "wireframing"],
+    "ui design": ["figma", "ui_components", "wireframing", "user_research"],
+    "ux design": ["figma", "ui_components", "wireframing", "user_research"]
 }
+
+import re
 
 def extract_tags_human_heuristic(answers: List[str]) -> schemas.LearnerEvidenceVector:
     joined = " ".join(answers).lower()
@@ -232,18 +330,28 @@ def extract_tags_human_heuristic(answers: List[str]) -> schemas.LearnerEvidenceV
     procrastination = []
     strengths = []
     
-    for kw, tags in KEYWORD_TAG_MAP.items():
-        if kw in joined:
-            found_tags.update(tags)
-            if kw in ["youtube", "anime", "movie", "game", "draw", "figma"]:
+    # Match multi-word keys first, then single words using word boundaries
+    sorted_keys = sorted(KEYWORD_TAG_MAP.keys(), key=lambda k: len(k), reverse=True)
+    for kw in sorted_keys:
+        pattern = r'\b' + re.escape(kw) + r'\b'
+        if re.search(pattern, joined, re.IGNORECASE):
+            found_tags.update(KEYWORD_TAG_MAP[kw])
+            if kw in ["reel", "reels", "short", "shorts", "youtube", "anime", "movie", "movies", "game", "games", "bgmi", "netflix", "scroll"]:
                 procrastination.append(kw)
-            if kw in ["math", "design", "write", "code", "excel", "draw"]:
-                strengths.append(kw)
+            if kw in ["think", "thought", "overthink", "waste", "myself"]:
+                procrastination.append("deep introspection")
+                strengths.append("reflective thought architecture")
+            if kw in ["cricket", "stats", "ipl", "math", "code", "python", "excel"]:
+                strengths.append("quantitative analysis")
+            if kw in ["gadget", "arduino", "circuit", "hardware"]:
+                strengths.append("hands-on engineering")
                 
+    # Balanced non-biased fallback if nothing recognized
     if not found_tags:
-        found_tags = {"ui_components", "figma", "wireframing", "canva"}
-        procrastination = ["browsing visual designs"]
-        strengths = ["creative observation"]
+        # Default to universal beginner-friendly web technology, NOT Figma/UI
+        found_tags = {"html", "css", "responsive_design", "javascript"}
+        procrastination = ["browsing digital content"]
+        strengths = ["curiosity to create online"]
 
     return schemas.LearnerEvidenceVector(
         institution_id=1,

@@ -35,68 +35,20 @@ const INITIAL_CHAT = [
 function mapHabitToComputerSkill(text = "") {
   const lower = text.toLowerCase();
 
-  // 1. REELS / SHORTS / VIDEOS / SOCIAL MEDIA / YOUTUBE
-  if (lower.includes("reel") || lower.includes("short") || lower.includes("instagram") || lower.includes("tiktok") || lower.includes("video") || lower.includes("youtube") || lower.includes("scroll") || lower.includes("social media") || lower.includes("clip")) {
-    return {
-      skill_id: "vis_07",
-      family: "Visual & Content Creation",
-      skill_name: "Motion Graphics & Video Editing",
-      habit_detected: "Scrolling Reels & Watching Video Shorts",
-      hidden_strength: "Visual Pacing, Hook Timing & Sound Sense",
-      overall_score: 95,
-      interest_score: 96,
-      time_score: 92,
-      hardware_score: 90,
-      explanation: "You already consume hundreds of short-form videos and instinctively know what catches attention in the first 3 seconds.",
-      real_life_example: "Top YouTubers and Instagram creators turn raw phone footage into viral 30-second shorts using CapCut and Premiere. You already have the audience eye—now you learn the editing tools!",
-      tasks: [
-        { day: 1, title: "CapCut Setup & First Cut", description: "Download CapCut (PC or Mobile). Import 3 random clips from your phone and trim them to 10 seconds total.", minutes: 45, tier: "standard", expected_output: "10-second trimmed video file" },
-        { day: 2, title: "Beat Syncing & Music Audio", description: "Add a trending audio track. Split and cut video clips exactly on the drum beats.", minutes: 45, tier: "standard", expected_output: "Exported video cut to the beat" },
-        { day: 3, title: "Kinetic Captions & Sound FX", description: "Add animated word-by-word captions and 2 'whoosh' sound effects for punchy pacing.", minutes: 45, tier: "standard", expected_output: "Video with captions & sound fx" },
-        { day: 4, title: "Color Filter & Zoom Transitions", description: "Apply a clean aesthetic color filter and add slow zoom-in transitions to key moments.", minutes: 45, tier: "standard", expected_output: "Final 15-second portfolio short" },
-        { day: 5, title: "Peer Reaction & Review", description: "Show your 15-second short to 2 friends. Ask if the pacing kept their attention the whole time.", minutes: 45, tier: "standard", expected_output: "Written feedback notes" }
-      ]
-    };
-  }
-
-  // 2. GAMING / BGMI / FREE FIRE / GTA / VALORANT / GAMES
-  if (lower.includes("game") || lower.includes("gaming") || lower.includes("bgmi") || lower.includes("free fire") || lower.includes("gta") || lower.includes("pubg") || lower.includes("playstation") || lower.includes("valorant") || lower.includes("cod") || lower.includes("play")) {
-    return {
-      skill_id: "prog_04",
-      family: "Game Tech & Logic",
-      skill_name: "Game Mechanics & Python Scripting",
-      habit_detected: "Competitive Gaming & Strategy Play",
-      hidden_strength: "Rule Systems, Fast Decision Making & Spatial Coordination",
-      overall_score: 94,
-      interest_score: 95,
-      time_score: 90,
-      hardware_score: 88,
-      explanation: "Gamers make incredible programmers because you intuitively understand game loops, cooldown timers, player health bars, and obstacle physics.",
-      real_life_example: "Game studios like Supercell (Clash of Clans) or indie developers code those exact collision boxes and reward loops using Python & Pygame. You are already an expert at playing the rules—now you code them!",
-      tasks: [
-        { day: 1, title: "Python & Pygame Setup", description: "Install Python and Pygame. Create a game window with a black background and title.", minutes: 45, tier: "standard", expected_output: "Working game window screenshot" },
-        { day: 2, title: "Player Box & Keyboard Movement", description: "Draw a player character rectangle. Make it move up, down, left, right with arrow keys.", minutes: 45, tier: "standard", expected_output: "Moving player sprite script" },
-        { day: 3, title: "Enemy Spawn & Random Motion", description: "Spawn random red obstacle blocks falling from top of screen.", minutes: 45, tier: "standard", expected_output: "Falling obstacles animation" },
-        { day: 4, title: "Hitbox Collision & Game Over", description: "Add collision detection: if player touches falling block, trigger 'Game Over' screen.", minutes: 45, tier: "standard", expected_output: "Playable dodge mini-game" },
-        { day: 5, title: "High Score Tracker & Playtest", description: "Track score based on survival seconds. Have a friend play and try to beat your record!", minutes: 45, tier: "standard", expected_output: "Playable dodge mini-game link" }
-      ]
-    };
-  }
-
-  // 3. OVERTHINKING / THINKING ABOUT MYSELF / WASTING TIME / INTROSPECTION
-  if (lower.includes("think") || lower.includes("thought") || lower.includes("waste") || lower.includes("myself") || lower.includes("reflect") || lower.includes("wonder") || lower.includes("overthink") || lower.includes("alone") || lower.includes("mind")) {
+  // 1. EXPLICIT UI / FIGMA / WIREFRAME (STRICTLY RESERVED FOR STUDENTS WHO MENTION SCREENS/FIGMA)
+  if (lower.includes("figma") || lower.includes("wireframe") || lower.includes("wireframing") || lower.includes("ui design") || lower.includes("ux design") || lower.includes("user interface") || lower.includes("prototype screen")) {
     return {
       skill_id: "vis_01",
       family: "Visual & Product Experience",
-      skill_name: "UI/UX Fundamentals & User Psychology",
-      habit_detected: "Deep Introspection & Personal Reflection",
-      hidden_strength: "Empathy, Human Observation & Identifying Friction",
+      skill_name: "UI/UX Fundamentals & Interactive Wireframing",
+      habit_detected: "Designing App Screens, Wireframes & Digital Flow",
+      hidden_strength: "Interface Architecture, User Flow Empathy & Usability Sense",
       overall_score: 96,
       interest_score: 98,
       time_score: 95,
       hardware_score: 100,
-      explanation: "You have a natural reflective mind. You constantly observe human thoughts, emotions, and personal friction points.",
-      real_life_example: "Think about Swiggy, Uber, or Spotify: every smooth 2-tap food ordering flow or calming dark screen exists because a UI/UX designer analyzed human thinking patterns to make it feel effortless!",
+      explanation: "You specifically enjoy thinking about app screens and visual user flows. Figma wireframing is the global standard for prototyping apps before writing any code!",
+      real_life_example: "Swiggy, CRED, and Spotify spend millions designing smooth micro-interactions in Figma so users can complete checkouts in 2 effortless taps without getting confused!",
       tasks: [
         { day: 1, title: "First Screen in Figma", description: "Open free Figma. Wireframe 1 clean mobile screen for an app solving a small student problem you face daily.", minutes: 30, tier: "standard", expected_output: "Figma mobile screen screenshot" },
         { day: 2, title: "UI Building Blocks", description: "Add 2 reusable components: a clean top header and a clickable card with clear text hierarchy.", minutes: 40, tier: "standard", expected_output: "Figma design canvas link" },
@@ -107,20 +59,92 @@ function mapHabitToComputerSkill(text = "") {
     };
   }
 
-  // 4. CRICKET / SPORTS / STATS / NUMBERS / EXCEL / STOCK MARKET
-  if (lower.includes("cricket") || lower.includes("sport") || lower.includes("football") || lower.includes("score") || lower.includes("stats") || lower.includes("ipl") || lower.includes("excel") || lower.includes("stock") || lower.includes("market") || lower.includes("number")) {
+  // 2. OVERTHINKING / THINKING ABOUT ME / WASTING TIME / DEEP INTROSPECTION
+  if (lower.includes("think") || lower.includes("thought") || lower.includes("waste") || lower.includes("wasting") || lower.includes("myself") || lower.includes("alone") || lower.includes("mind") || lower.includes("reflect") || lower.includes("wonder") || lower.includes("overthink") || lower.includes("anxious") || lower.includes("future") || lower.includes("daydream")) {
+    return {
+      skill_id: "content_01",
+      family: "Content & Communication",
+      skill_name: "Thought Architecture & Technical Writing",
+      habit_detected: "Deep Introspection, Overthinking & Processing Life",
+      hidden_strength: "Analytical Reflection, Systematic Structuring & Identifying Blindspots",
+      overall_score: 96,
+      interest_score: 98,
+      time_score: 95,
+      hardware_score: 100,
+      explanation: "You spend significant mental energy analyzing yourself, human decisions, and life scenarios. When you channel that active mind onto digital pages, you become an exceptional Thought Architect and Technical Writer who turns messy chaos into structured clarity!",
+      real_life_example: "Companies like Notion, Stripe, and Google pay Technical Writers and Product Architects ₹15-25 LPA simply to take complex, chaotic thoughts and structure them into clear guides and specs. Your reflective mind is a superpower when you write down your reflections!",
+      tasks: [
+        { day: 1, title: "Brain Dump & Markdown Second Brain", description: "Open Notion or Obsidian. Write an honest 150-word brain dump of everything on your mind, then organize it into 3 clear headings.", minutes: 30, tier: "standard", expected_output: "Structured Markdown page screenshot" },
+        { day: 2, title: "The '5-Whys' Root Cause Diagram", description: "Pick one recurring problem in your college life. Break down the 5 levels of why it happens using a bulleted logic tree.", minutes: 35, tier: "standard", expected_output: "Root cause analysis document" },
+        { day: 3, title: "Turn Frustration into a Tech Spec", description: "Take a daily friction point you hate and write a 1-page Product Requirement Document (PRD) proposing a simple digital solution.", minutes: 45, tier: "standard", expected_output: "1-page PRD document" },
+        { day: 4, title: "Interactive Decision Matrix", description: "Create a comparison table scoring 3 different career options or project ideas based on Effort vs Impact.", minutes: 40, tier: "standard", expected_output: "Decision matrix table link" },
+        { day: 5, title: "Publish Your First Technical Guide", description: "Format your solution into a clean, readable step-by-step guide and share it with 1 peer for feedback.", minutes: 30, tier: "standard", expected_output: "Published guide link or PDF" }
+      ]
+    };
+  }
+
+  // 3. REELS / SHORTS / VIDEOS / SOCIAL MEDIA / YOUTUBE DOOMSCROLLING
+  if (lower.includes("reel") || lower.includes("short") || lower.includes("instagram") || lower.includes("insta") || lower.includes("tiktok") || lower.includes("scroll") || lower.includes("scrolling") || lower.includes("video") || lower.includes("youtube") || lower.includes("clip") || lower.includes("meme")) {
+    return {
+      skill_id: "vis_07",
+      family: "Visual & Content Creation",
+      skill_name: "Motion Graphics & Short-Form Video Editing",
+      habit_detected: "Scrolling Reels & Watching Video Shorts",
+      hidden_strength: "Visual Pacing, 3-Second Hook Timing & Sound Sense",
+      overall_score: 95,
+      interest_score: 96,
+      time_score: 92,
+      hardware_score: 90,
+      explanation: "You already consume hundreds of short-form videos and instinctively know what catches attention in the first 3 seconds and what feels boring. Video editing turns that viewer intuition into timeline cuts!",
+      real_life_example: "Top creators like MrBeast, Tanmay Bhat, and Raj Shamani pay their video editors ₹50,000+ per month to turn phone recordings into viral 30-second shorts using CapCut and Premiere. You already have the audience eye—now learn the editing timeline!",
+      tasks: [
+        { day: 1, title: "CapCut Setup & First Cut", description: "Download CapCut (PC or Mobile). Import 3 random clips from your phone and trim them to 10 seconds total.", minutes: 45, tier: "standard", expected_output: "10-second trimmed video file" },
+        { day: 2, title: "Beat Syncing & Music Audio", description: "Add a trending audio track. Split and cut video clips exactly on the drum beats.", minutes: 45, tier: "standard", expected_output: "Exported video cut to the beat" },
+        { day: 3, title: "Kinetic Captions & Sound FX", description: "Add animated word-by-word captions and 2 'whoosh' sound effects for punchy pacing.", minutes: 45, tier: "standard", expected_output: "Video with captions & sound fx" },
+        { day: 4, title: "Color Filter & Zoom Transitions", description: "Apply a clean aesthetic color filter and add slow zoom-in transitions to key moments.", minutes: 45, tier: "standard", expected_output: "Final 15-second portfolio short" },
+        { day: 5, title: "Peer Reaction & Review", description: "Show your 15-second short to 2 friends. Ask if the pacing kept their attention the whole time.", minutes: 45, tier: "standard", expected_output: "Written feedback notes" }
+      ]
+    };
+  }
+
+  // 4. COMPETITIVE GAMING / BGMI / FREE FIRE / VALORANT / GTA / GAMES
+  if (lower.includes("game") || lower.includes("gaming") || lower.includes("bgmi") || lower.includes("free fire") || lower.includes("freefire") || lower.includes("valorant") || lower.includes("gta") || lower.includes("pubg") || lower.includes("playstation") || lower.includes("cod") || lower.includes("clutch") || lower.includes("squad") || lower.includes("play")) {
+    return {
+      skill_id: "prog_04",
+      family: "Game Tech & Logic",
+      skill_name: "Game Mechanics & Python Scripting",
+      habit_detected: "Competitive Gaming & Squad Strategy",
+      hidden_strength: "Rule Systems, Collision Logic & Fast Spatial Coordination",
+      overall_score: 95,
+      interest_score: 96,
+      time_score: 90,
+      hardware_score: 88,
+      explanation: "Gamers make incredible programmers because you intuitively understand game loops, cooldown timers, player health bars, and obstacle physics in your sleep.",
+      real_life_example: "Game studios like Supercell (Clash of Clans) or Krafton (BGMI) code player hitboxes, recoil physics, and reward loops using Python & game engines. You are already an expert at playing the rules—now you code them!",
+      tasks: [
+        { day: 1, title: "Python & Pygame Setup", description: "Install Python and Pygame. Create a game window with a black background and custom title.", minutes: 45, tier: "standard", expected_output: "Working game window screenshot" },
+        { day: 2, title: "Player Box & Keyboard Movement", description: "Draw a player character rectangle. Make it move up, down, left, right with arrow keys.", minutes: 45, tier: "standard", expected_output: "Moving player sprite script" },
+        { day: 3, title: "Enemy Spawn & Random Motion", description: "Spawn random red obstacle blocks falling from top of screen at variable speeds.", minutes: 45, tier: "standard", expected_output: "Falling obstacles animation" },
+        { day: 4, title: "Hitbox Collision & Game Over", description: "Add collision detection: if player touches falling block, trigger 'Game Over' screen.", minutes: 45, tier: "standard", expected_output: "Playable dodge mini-game" },
+        { day: 5, title: "High Score Tracker & Playtest", description: "Track score based on survival seconds. Have a friend play and try to beat your record!", minutes: 45, tier: "standard", expected_output: "Playable dodge mini-game link" }
+      ]
+    };
+  }
+
+  // 5. CRICKET / SPORTS / STATS / IPL / NUMBERS / STOCKS / EXCEL
+  if (lower.includes("cricket") || lower.includes("ipl") || lower.includes("csk") || lower.includes("rcb") || lower.includes("dream11") || lower.includes("score") || lower.includes("scores") || lower.includes("stats") || lower.includes("sport") || lower.includes("football") || lower.includes("stock") || lower.includes("stocks") || lower.includes("market") || lower.includes("trading") || lower.includes("crypto") || lower.includes("excel") || lower.includes("math") || lower.includes("number")) {
     return {
       skill_id: "ai_01",
       family: "Data & Analytics",
       skill_name: "Sports & Business Data Analytics (Python/Pandas)",
-      habit_detected: "Tracking Cricket Scores, Numbers & Match Stats",
-      hidden_strength: "Pattern Recognition, Metric Comparison & Tactical Insight",
-      overall_score: 93,
-      interest_score: 94,
+      habit_detected: "Tracking Cricket Scores, Numbers, IPL Stats & Market Graphs",
+      hidden_strength: "Pattern Recognition, Metric Comparison & Quantitative Thinking",
+      overall_score: 94,
+      interest_score: 95,
       time_score: 90,
       hardware_score: 95,
       explanation: "If you love checking strike rates, bowling averages, points tables, or market graphs, you already think like a Data Analyst!",
-      real_life_example: "IPL teams like CSK and Mumbai Indians pay data analysts to calculate bowler economy rates and winning odds. You can use Python and Pandas to turn raw cricket stats into live visual dashboards!",
+      real_life_example: "IPL teams like CSK and Mumbai Indians hire data analysts to calculate bowler economy rates and winning odds under pressure. You can use Python and Pandas to turn raw match scorecards into interactive visual charts!",
       tasks: [
         { day: 1, title: "Download IPL / Player Dataset", description: "Download a free Kaggle IPL dataset. Open in Google Sheets or Python Pandas.", minutes: 45, tier: "standard", expected_output: "Cleaned spreadsheet file" },
         { day: 2, title: "Top Batsmen Average Formulas", description: "Use average formulas and sorting to calculate the top 5 highest-scoring players.", minutes: 45, tier: "standard", expected_output: "Top 5 player ranking sheet" },
@@ -131,20 +155,68 @@ function mapHabitToComputerSkill(text = "") {
     };
   }
 
-  // 5. CODING / PYTHON / PROGRAMMING / BACKEND / AUTOMATION / LOGIC
-  if (lower.includes("python") || lower.includes("code") || lower.includes("coding") || lower.includes("program") || lower.includes("script") || lower.includes("backend") || lower.includes("automate") || lower.includes("developer")) {
+  // 6. LOW ENERGY / PROCRASTINATION / "I AM LAZY / DO NOTHING / SLEEP / IN BED"
+  if (lower.includes("lazy") || lower.includes("do nothing") || lower.includes("doing nothing") || lower.includes("sleep") || lower.includes("sleeping") || lower.includes("bed") || lower.includes("lie down") || lower.includes("lying in bed") || lower.includes("bored") || lower.includes("boredom") || lower.includes("procrastinat") || lower.includes("nothing")) {
+    return {
+      skill_id: "content_01",
+      family: "Productivity & Systems",
+      skill_name: "Digital Second Brain & Notion Micro-Systems",
+      habit_detected: "Low Energy State, Procrastination & Resting in Bed",
+      hidden_strength: "Need for Ultra-Low Activation Energy & Clean Simplicity",
+      overall_score: 95,
+      interest_score: 96,
+      time_score: 98,
+      hardware_score: 100,
+      explanation: "When you feel lazy or unmotivated, heavy coding courses cause burnout. The secret is a 15-minute 'Second Brain'—a simple digital workspace that organizes your life with almost zero effort!",
+      real_life_example: "Top authors and tech founders build a 'Second Brain' in Notion to capture thoughts without feeling tired. You don't need motivation: just 15 minutes to set up one clean dashboard!",
+      tasks: [
+        { day: 1, title: "15-Minute Notion Dashboard", description: "Open free Notion. Create 1 clean page with a dark banner and 3 daily focus links.", minutes: 20, tier: "standard", expected_output: "Clean Notion dashboard screenshot" },
+        { day: 2, title: "1-Click Useful Bookmarks Board", description: "Add a 4-card gallery saving your top 3 favorite YouTube learning channels or websites.", minutes: 25, tier: "standard", expected_output: "Bookmarks gallery link" },
+        { day: 3, title: "Daily Habit Micro-Checklist", description: "Add a 3-item daily checkbox (Water, 15m Walk, 1 Lesson) with automatic reset buttons.", minutes: 25, tier: "standard", expected_output: "Working habit tracker" },
+        { day: 4, title: "Quick Thoughts Inbox", description: "Create a simple inbox database to jot down ideas in 5 seconds from your phone.", minutes: 20, tier: "standard", expected_output: "Mobile thoughts inbox view" },
+        { day: 5, title: "5-Minute Sunday Reset Routine", description: "Write down a 3-step checklist to organize your upcoming week in under 5 minutes.", minutes: 20, tier: "standard", expected_output: "Weekly reset card" }
+      ]
+    };
+  }
+
+  // 7. BINGE WATCHING / ANIME / NETFLIX / MOVIES / STORIES / MANGA
+  if (lower.includes("anime") || lower.includes("netflix") || lower.includes("movie") || lower.includes("movies") || lower.includes("series") || lower.includes("kdrama") || lower.includes("k-drama") || lower.includes("manga") || lower.includes("naruto") || lower.includes("story") || lower.includes("stories") || lower.includes("binge") || lower.includes("cinema")) {
+    return {
+      skill_id: "content_02",
+      family: "Content & Communication",
+      skill_name: "Digital Storytelling & Screenplay Writing",
+      habit_detected: "Binge-Watching Anime, Netflix Series & World-Building",
+      hidden_strength: "Narrative Pacing, Character Dialogue & Dramatic Tension",
+      overall_score: 93,
+      interest_score: 95,
+      time_score: 90,
+      hardware_score: 98,
+      explanation: "Consuming anime and film series builds narrative intuition. Learning digital screenplay formatting allows you to write scripts for games, webtoons, media companies, or YouTube creators!",
+      real_life_example: "Netflix, Webtoon studios, and RPG game companies hire Narrative Designers to format 3-act storyboards and write branching dialogue. You can turn your viewing intuition into formatted scripts using WriterDuet!",
+      tasks: [
+        { day: 1, title: "Logline & 3-Act Outline", description: "Pick your favorite anime concept. Write a 1-sentence logline and a 3-act beginning, middle, and end.", minutes: 45, tier: "standard", expected_output: "1-page story outline" },
+        { day: 2, title: "Character Profile & Conflict", description: "Design a protagonist with 1 strength, 1 fatal flaw, and a clear goal.", minutes: 45, tier: "standard", expected_output: "Character sheet document" },
+        { day: 3, title: "Opening Scene Screenplay", description: "Use free tool WriterDuet. Format 2 pages of screenplay with sluglines and dialogue.", minutes: 45, tier: "standard", expected_output: "2-page formatted script PDF" },
+        { day: 4, title: "Visual Storyboard Slides", description: "Create a 6-panel storyboard using Canva or hand drawings showing camera angles.", minutes: 45, tier: "standard", expected_output: "6-panel storyboard slide" },
+        { day: 5, title: "Pitch Presentation & Feedback", description: "Read your 2-page scene aloud to a peer. Ask if the twist was surprising.", minutes: 45, tier: "standard", expected_output: "Written peer critique notes" }
+      ]
+    };
+  }
+
+  // 8. AUTOMATION / SHORTCUTS / SCRIPTS / BOTS / BACKEND LOGIC
+  if (lower.includes("automate") || lower.includes("automation") || lower.includes("shortcut") || lower.includes("shortcuts") || lower.includes("script") || lower.includes("bot") || lower.includes("crawler") || lower.includes("scraping") || lower.includes("copy paste") || lower.includes("backend") || lower.includes("api") || lower.includes("python") || lower.includes("code") || lower.includes("coding")) {
     return {
       skill_id: "back_01",
       family: "Backend & Systems",
       skill_name: "Python Automation & REST API Engineering",
-      habit_detected: "Curiosity for Software Logic & Automation",
-      hidden_strength: "Algorithmic Thinking, Structured Problem Solving & Efficiency",
+      habit_detected: "Curiosity for Shortcuts, Scripts & Software Automation",
+      hidden_strength: "Algorithmic Thinking, Elimination of Manual Friction & Efficiency",
       overall_score: 95,
       interest_score: 96,
       time_score: 92,
       hardware_score: 95,
-      explanation: "You enjoy logical puzzle solving, shortcuts, and building tools that save manual effort.",
-      real_life_example: "Instead of manually downloading 50 exam papers or sending individual emails, a 20-line Python script can automate it in 3 seconds. That is the exact automation tech startups hire engineers for!",
+      explanation: "You hate repetitive tasks and love finding smart shortcuts. A few lines of Python code can automate hours of manual boring work in seconds!",
+      real_life_example: "Instead of manually downloading 50 exam papers or sending individual emails, a 20-line Python script can automate it in 3 seconds. That is the exact automation tech startups pay backend engineers for!",
       tasks: [
         { day: 1, title: "Python Environment & Script", description: "Set up Python and write a script that takes user input and performs automated calculations.", minutes: 45, tier: "standard", expected_output: "Working python script file" },
         { day: 2, title: "File Automation Script", description: "Write a script that automatically organizes files in your Downloads folder into subfolders by type.", minutes: 45, tier: "standard", expected_output: "File sorter script screenshot" },
@@ -155,8 +227,104 @@ function mapHabitToComputerSkill(text = "") {
     };
   }
 
-  // 6. WEBSITES / WEB / HTML / CSS / FRONTEND / BROWSING
-  if (lower.includes("web") || lower.includes("website") || lower.includes("html") || lower.includes("css") || lower.includes("frontend") || lower.includes("browser")) {
+  // 9. HARDWARE / ROBOTS / ARDUINO / IOT / GADGETS / CIRCUITS / WIRES
+  if (lower.includes("robot") || lower.includes("circuit") || lower.includes("circuits") || lower.includes("arduino") || lower.includes("iot") || lower.includes("hardware") || lower.includes("sensor") || lower.includes("sensors") || lower.includes("electronics") || lower.includes("remote") || lower.includes("wire") || lower.includes("wiring") || lower.includes("dismantle") || lower.includes("gadget") || lower.includes("gadgets") || lower.includes("drone")) {
+    return {
+      skill_id: "hw_01",
+      family: "Hardware & IoT",
+      skill_name: "Arduino & Embedded IoT Programming",
+      habit_detected: "Tinkering with Gadgets, Electronics & Physical Hardware",
+      hidden_strength: "Hands-on Spatial Engineering, Sensor Logic & Physical Computing",
+      overall_score: 93,
+      interest_score: 95,
+      time_score: 88,
+      hardware_score: 85,
+      explanation: "You are curious about how physical gadgets, smart appliances, or robots work in the real world. You can program hardware sensors to react to physical surroundings!",
+      real_life_example: "Automatic toll gates (Fastag) and smart home lights use simple Arduino sensors and C/Python code. You can wire up virtual breadboards in Tinkercad and program LED responses with code!",
+      tasks: [
+        { day: 1, title: "Arduino Simulator Setup (Tinkercad)", description: "Open free Tinkercad Circuits in browser. Wire a virtual Arduino Uno with an LED and resistor.", minutes: 45, tier: "standard", expected_output: "Tinkercad circuit screenshot" },
+        { day: 2, title: "Blink Code & Timing Delays", description: "Write C++ code to make the LED blink every 1 second using digitalWrite and delay.", minutes: 45, tier: "standard", expected_output: "Working blinking simulation" },
+        { day: 3, title: "Ultrasonic Distance Sensor", description: "Connect an ultrasonic distance sensor to measure distance to a virtual obstacle.", minutes: 45, tier: "standard", expected_output: "Serial monitor distance readings" },
+        { day: 4, title: "Smart Buzzer Warning Alarm", description: "Program the buzzer to beep when an object gets closer than 20cm (like a car reverse sensor).", minutes: 45, tier: "standard", expected_output: "Working obstacle alert circuit" },
+        { day: 5, title: "Smart Gate / Sensor Demo", description: "Combine sensor and LED/buzzer into a mini smart gate project. Share project simulation link.", minutes: 45, tier: "standard", expected_output: "Tinkercad project share link" }
+      ]
+    };
+  }
+
+  // 10. PHOTOGRAPHY / DOODLING / CANVA / LIGHTROOM / AESTHETICS
+  if (lower.includes("photo") || lower.includes("photos") || lower.includes("photography") || lower.includes("lightroom") || lower.includes("vsco") || lower.includes("filter") || lower.includes("camera") || lower.includes("doodle") || lower.includes("sketch") || lower.includes("art") || lower.includes("paint") || lower.includes("drawing") || lower.includes("poster") || lower.includes("canva") || lower.includes("aesthetic")) {
+    return {
+      skill_id: "vis_02",
+      family: "Visual & UI Design",
+      skill_name: "Graphic Design & Brand Visual Systems (Canva/Figma)",
+      habit_detected: "Taking Aesthetic Photos, Doodling & Visual Curation",
+      hidden_strength: "Color Harmony, Composition & Eye for Aesthetics",
+      overall_score: 94,
+      interest_score: 96,
+      time_score: 92,
+      hardware_score: 100,
+      explanation: "Having an eye for good photos, filters, and layouts is the exact skill businesses pay designers for to create brand logos, banners, and social ads!",
+      real_life_example: "When you see a stunning poster for a college fest or a sleek coffee brand logo, a graphic designer combined color palettes and typography. You can design complete social branding kits using Figma and Canva!",
+      tasks: [
+        { day: 1, title: "Design a Modern Cafe Logo", description: "Pick a fictional coffee shop. Create a minimalist logo using basic geometric shapes in Canva or Figma.", minutes: 45, tier: "standard", expected_output: "Exported logo file" },
+        { day: 2, title: "Brand Color Palette & Fonts", description: "Choose 2 complementary colors and 2 Google fonts that match the cafe's vibe.", minutes: 45, tier: "standard", expected_output: "Brand style board" },
+        { day: 3, title: "Instagram Promo Story Banner", description: "Create an eye-catching 1080x1920 Instagram story announcing a weekend discount.", minutes: 45, tier: "standard", expected_output: "Finished story banner" },
+        { day: 4, title: "Packaging & Cup Mockup", description: "Place your logo onto a realistic paper coffee cup mockup to visualize the real product.", minutes: 45, tier: "standard", expected_output: "Cup mockup graphic" },
+        { day: 5, title: "Portfolio Presentation Card", description: "Combine logo, story banner, and cup mockup into one clean Behance/portfolio slide.", minutes: 45, tier: "standard", expected_output: "1-slide brand portfolio" }
+      ]
+    };
+  }
+
+  // 11. CYBERSECURITY / HACKING / LINUX / NETWORKS
+  if (lower.includes("hack") || lower.includes("hacking") || lower.includes("cyber") || lower.includes("cybersecurity") || lower.includes("security") || lower.includes("kali") || lower.includes("linux") || lower.includes("terminal") || lower.includes("firewall") || lower.includes("packet")) {
+    return {
+      skill_id: "back_05",
+      family: "Backend & Systems",
+      skill_name: "Cybersecurity & Network Diagnostics",
+      habit_detected: "Curiosity for Security, Hacking, Networks & System Bounds",
+      hidden_strength: "Boundary Testing, Protocol Analysis & System Inquisitiveness",
+      overall_score: 93,
+      interest_score: 95,
+      time_score: 89,
+      hardware_score: 90,
+      explanation: "You are fascinated by how security systems work and how digital boundaries can be defended. Cybersecurity is one of the highest-demand tech fields in the world!",
+      real_life_example: "Fintech apps like PhonePe and Google Pay hire security analysts to trace network packets and find vulnerabilities before bad actors can exploit them!",
+      tasks: [
+        { day: 1, title: "Network Diagnostics & Terminal", description: "Open terminal. Run ping, traceroute, and nslookup to trace packets traveling to google.com.", minutes: 40, tier: "standard", expected_output: "Terminal trace screenshot" },
+        { day: 2, title: "Wireshark Packet Inspection", description: "Open free Wireshark. Capture 10 seconds of browser traffic and inspect HTTP request headers.", minutes: 45, tier: "standard", expected_output: "Wireshark packet capture file" },
+        { day: 3, title: "Password Hashing & Salt Simulation", description: "Write 10 lines of Python using hashlib to demonstrate SHA-256 password hashing vs plain text.", minutes: 45, tier: "standard", expected_output: "Working hashing script output" },
+        { day: 4, title: "Port Scanning & Firewall Audit", description: "Run a safe local Nmap port scan on localhost (127.0.0.1) to discover open listening ports.", minutes: 45, tier: "standard", expected_output: "Local port audit log" },
+        { day: 5, title: "Security Vulnerability Report", description: "Write a 1-page report outlining the top 3 OWASP web vulnerabilities and how engineers fix them.", minutes: 35, tier: "standard", expected_output: "1-page security report PDF" }
+      ]
+    };
+  }
+
+  // 12. CHATTING / WHATSAPP / CALLS / COMMUNITY / EVENTS
+  if (lower.includes("chat") || lower.includes("chatting") || lower.includes("talk") || lower.includes("talking") || lower.includes("friends") || lower.includes("call") || lower.includes("calls") || lower.includes("whatsapp") || lower.includes("organize") || lower.includes("organizing") || lower.includes("event") || lower.includes("club") || lower.includes("speaking")) {
+    return {
+      skill_id: "content_05",
+      family: "Content & Communication",
+      skill_name: "Tech Community Management & Presentation Design",
+      habit_detected: "Conversing with Friends, Group Chatting & Organizing Events",
+      hidden_strength: "High Interpersonal Empathy, Charismatic Communication & Coordination",
+      overall_score: 92,
+      interest_score: 94,
+      time_score: 90,
+      hardware_score: 100,
+      explanation: "You naturally connect with people, spark discussions, and coordinate groups. In tech, Developer Advocates and Community Managers are paid to host events, engage users, and present ideas!",
+      real_life_example: "Tech companies like GitHub, Google, and Discord pay Developer Advocates and Community Leads to host hackathons, moderate discussions, and deliver charismatic keynote slides!",
+      tasks: [
+        { day: 1, title: "Canva Keynote Presentation Deck", description: "Pick an exciting tech topic (like AI or gaming). Design a 5-slide visual presentation deck in Canva.", minutes: 40, tier: "standard", expected_output: "5-slide Canva presentation" },
+        { day: 2, title: "Community Guidelines & Welcome Message", description: "Draft a welcoming 3-paragraph onboarding post for a campus tech discord or WhatsApp group.", minutes: 35, tier: "standard", expected_output: "Welcome message document" },
+        { day: 3, title: "Interactive Kahoot / Quiz Setup", description: "Build a 5-question interactive quiz on Kahoot or Google Forms to engage a room of 20 students.", minutes: 40, tier: "standard", expected_output: "Playable quiz link" },
+        { day: 4, title: "Mini Hackathon Announcement Flyer", description: "Design a compelling promotional flyer with event dates, prizes, and registration rules.", minutes: 45, tier: "standard", expected_output: "Exported event flyer image" },
+        { day: 5, title: "3-Minute Pitch to a Peer", description: "Present your 5-slide deck to a friend on video or in person. Record a 30-second reflection on their engagement.", minutes: 30, tier: "standard", expected_output: "Peer feedback & reflection notes" }
+      ]
+    };
+  }
+
+  // 13. WEBSITES / WEB / HTML / CSS / FRONTEND / BROWSING
+  if (lower.includes("web") || lower.includes("website") || lower.includes("websites") || lower.includes("html") || lower.includes("css") || lower.includes("frontend") || lower.includes("browser")) {
     return {
       skill_id: "front_01",
       family: "Frontend & Web Tech",
@@ -179,91 +347,19 @@ function mapHabitToComputerSkill(text = "") {
     };
   }
 
-  // 7. ROBOTS / HARDWARE / ARDUINO / IOT / GADGETS / CIRCUITS
-  if (lower.includes("robot") || lower.includes("circuit") || lower.includes("arduino") || lower.includes("iot") || lower.includes("hardware") || lower.includes("sensor") || lower.includes("electronics")) {
-    return {
-      skill_id: "hw_01",
-      family: "Hardware & IoT",
-      skill_name: "Arduino & Embedded IoT Programming",
-      habit_detected: "Tinkering with Gadgets, Electronics & Physical Hardware",
-      hidden_strength: "Hands-on Engineering, Sensor Logic & Physical Computing",
-      overall_score: 92,
-      interest_score: 95,
-      time_score: 88,
-      hardware_score: 85,
-      explanation: "You are curious about how physical gadgets, smart appliances, or robots work in the real world.",
-      real_life_example: "Automatic toll gates (Fastag) and smart home lights use simple Arduino sensors and C/Python code. You can wire up your first breadboard circuit and light up LEDs with code!",
-      tasks: [
-        { day: 1, title: "Arduino Simulator Setup (Tinkercad)", description: "Open free Tinkercad Circuits in browser. Wire a virtual Arduino Uno with an LED and resistor.", minutes: 45, tier: "standard", expected_output: "Tinkercad circuit screenshot" },
-        { day: 2, title: "Blink Code & Timing Delays", description: "Write C++ code to make the LED blink every 1 second using digitalWrite and delay.", minutes: 45, tier: "standard", expected_output: "Working blinking simulation" },
-        { day: 3, title: "Ultrasonic Distance Sensor", description: "Connect an ultrasonic distance sensor to measure distance to a virtual obstacle.", minutes: 45, tier: "standard", expected_output: "Serial monitor distance readings" },
-        { day: 4, title: "Smart Buzzer Warning Alarm", description: "Program the buzzer to beep when an object gets closer than 20cm (like a car reverse sensor).", minutes: 45, tier: "standard", expected_output: "Working obstacle alert circuit" },
-        { day: 5, title: "Smart Gate / Sensor Demo", description: "Combine sensor and LED/buzzer into a mini smart gate project. Share project simulation link.", minutes: 45, tier: "standard", expected_output: "Tinkercad project share link" }
-      ]
-    };
-  }
-
-  // 8. MOVIES / ANIME / NETFLIX / STORIES / WRITING / READING
-  if (lower.includes("movie") || lower.includes("anime") || lower.includes("series") || lower.includes("netflix") || lower.includes("story") || lower.includes("write") || lower.includes("read") || lower.includes("manga")) {
-    return {
-      skill_id: "content_01",
-      family: "Content & Communication",
-      skill_name: "Digital Storytelling & Technical Scriptwriting",
-      habit_detected: "Binge-Watching Stories, Anime & World-Building",
-      hidden_strength: "Narrative Pacing, Character Dialogue & Clear Communication",
-      overall_score: 91,
-      interest_score: 93,
-      time_score: 90,
-      hardware_score: 98,
-      explanation: "Consuming movies and anime trains your narrative intuition. Learning digital screenplay formatting lets you write scripts for games, creators, or media brands!",
-      real_life_example: "Anime studios, webtoon creators, and game writers format scenes using 3-act storyboards and screenplays. You can turn your binge-watching intuition into formatted scripts using WriterDuet!",
-      tasks: [
-        { day: 1, title: "Logline & 3-Act Outline", description: "Pick your favorite anime concept. Write a 1-sentence logline and a 3-act beginning, middle, and end.", minutes: 45, tier: "standard", expected_output: "1-page story outline" },
-        { day: 2, title: "Character Profile & Conflict", description: "Design a protagonist with 1 strength, 1 fatal flaw, and a clear goal.", minutes: 45, tier: "standard", expected_output: "Character sheet document" },
-        { day: 3, title: "Opening Scene Screenplay", description: "Use free tool WriterDuet. Format 2 pages of screenplay with sluglines and dialogue.", minutes: 45, tier: "standard", expected_output: "2-page formatted script PDF" },
-        { day: 4, title: "Visual Storyboard Slides", description: "Create a 6-panel storyboard using Canva or hand drawings showing camera angles.", minutes: 45, tier: "standard", expected_output: "6-panel storyboard slide" },
-        { day: 5, title: "Pitch Presentation & Feedback", description: "Read your 2-page scene aloud to a peer. Ask if the twist was surprising.", minutes: 45, tier: "standard", expected_output: "Written peer critique notes" }
-      ]
-    };
-  }
-
-  // 9. DRAWING / ART / SKETCHING / PHOTOS / CANVA
-  if (lower.includes("photo") || lower.includes("draw") || lower.includes("art") || lower.includes("sketch") || lower.includes("paint") || lower.includes("canva") || lower.includes("poster") || lower.includes("design")) {
-    return {
-      skill_id: "vis_02",
-      family: "Visual & UI Design",
-      skill_name: "Graphic Design & Brand Visual Systems (Figma/Canva)",
-      habit_detected: "Drawing, Photography & Visual Aesthetics",
-      hidden_strength: "Color Harmony, Composition & Aesthetic Eye",
-      overall_score: 94,
-      interest_score: 96,
-      time_score: 92,
-      hardware_score: 100,
-      explanation: "Having an eye for good photos, filters, and layouts is the exact skill businesses pay designers for to create brand logos, banners, and social ads!",
-      real_life_example: "When you see a stunning poster for a college fest or a sleek coffee brand logo, a graphic designer combined color palettes and typography. You can design complete social branding kits using Figma and Canva!",
-      tasks: [
-        { day: 1, title: "Design a Modern Cafe Logo", description: "Pick a fictional coffee shop. Create a minimalist logo using basic geometric shapes in Canva or Figma.", minutes: 45, tier: "standard", expected_output: "Exported logo file" },
-        { day: 2, title: "Brand Color Palette & Fonts", description: "Choose 2 complementary colors and 2 Google fonts that match the cafe's vibe.", minutes: 45, tier: "standard", expected_output: "Brand style board" },
-        { day: 3, title: "Instagram Promo Story Banner", description: "Create an eye-catching 1080x1920 Instagram story announcing a weekend discount.", minutes: 45, tier: "standard", expected_output: "Finished story banner" },
-        { day: 4, title: "Packaging & Cup Mockup", description: "Place your logo onto a realistic paper coffee cup mockup to visualize the real product.", minutes: 45, tier: "standard", expected_output: "Cup mockup graphic" },
-        { day: 5, title: "Portfolio Presentation Card", description: "Combine logo, story banner, and cup mockup into one clean Behance/portfolio slide.", minutes: 45, tier: "standard", expected_output: "1-slide brand portfolio" }
-      ]
-    };
-  }
-
-  // DEFAULT: Frontend Web Development
+  // DEFAULT FALLBACK: Frontend Web Development (The most accessible universal foundation)
   return {
     skill_id: "front_01",
     family: "Frontend & Web Tech",
     skill_name: "Frontend Web Development (HTML, CSS & JS)",
-    habit_detected: "Browsing Apps, Websites & Exploring Gadgets",
+    habit_detected: "Exploring Digital Apps, Websites & Everyday Tech",
     hidden_strength: "Curiosity for How Things Work & Interactive Creation",
     overall_score: 90,
     interest_score: 91,
     time_score: 89,
     hardware_score: 100,
-    explanation: "You use websites and apps every single day. Learning HTML, CSS, and basic JavaScript lets you create real websites that anyone in the world can visit!",
-    real_life_example: "Every company, college fest, or hackathon team needs a live landing page that works on phones and laptops. You can turn visual design ideas into real live clickable websites using HTML & CSS!",
+    explanation: "You use digital apps and the web every single day. Learning HTML, CSS, and basic JavaScript is the #1 universal, zero-friction launchpad that lets you build things anyone online can interact with!",
+    real_life_example: "Every company, college fest, or hackathon team needs a live landing page that works on phones and laptops. You can turn visual ideas into real live clickable websites using HTML & CSS!",
     tasks: [
       { day: 1, title: "Your Very First HTML Webpage", description: "Open text editor. Write basic HTML tags (<h1>, <p>, <button>) introducing yourself.", minutes: 45, tier: "standard", expected_output: "Working index.html file" },
       { day: 2, title: "CSS Colors & Modern Styling", description: "Add CSS to style your page: dark background, rounded card, and a blue button.", minutes: 45, tier: "standard", expected_output: "Styled web page screenshot" },
@@ -277,18 +373,26 @@ function mapHabitToComputerSkill(text = "") {
 const REAL_LIFE_EXAMPLES = {
   vis_01: "Think about Swiggy, Uber, or Spotify: every smooth 2-tap ordering flow was created by a UI/UX designer analyzing human behavior in Figma!",
   vis_02: "Top brands like Airbnb and Apple use design systems so all buttons, colors, and typography look consistent across every screen.",
+  vis_03: "Minimalist poster designers and Apple landing pages rely on typography hierarchy to draw your eye to the headline first.",
   vis_04: "Figma auto-layout allows buttons to automatically resize when text changes, saving thousands of hours for web and mobile design teams.",
+  vis_05: "CRED's delightful button vibrations and Instagram heart bursts are micro-interactions designed to make apps feel magical and alive.",
+  vis_06: "Pixar, PlayStation games, and Nike 3D product previews use Blender and Three.js to render lifelike 3D models directly in the web browser.",
   vis_07: "Top creators like MrBeast or Indian finance YouTubers turn raw footage into viral 30-second shorts using CapCut and Premiere. You already have the audience eye—now you learn the editing tools!",
   prog_04: "Game studios like Supercell (Clash of Clans) or indie creators code player physics, collision boxes, and cooldown loops using Python & Pygame!",
   front_01: "Every college fest, local business, or hackathon team needs a live landing page that works on phones and laptops. You can build responsive websites using HTML & CSS!",
+  front_02: "Interactive browser apps like Wordle and Google Maps use JavaScript DOM manipulation to handle real-time button clicks and instant map movements without page refreshes.",
   front_03: "Instagram and Netflix web apps are built with React component architecture so content updates instantly without refreshing the page.",
+  front_05: "Indie game creators and generative artists build interactive canvas games and visual effects using JavaScript and p5.js!",
   back_01: "Instead of manually downloading 50 exam papers or sending individual emails, a 20-line Python script can automate it in 3 seconds. That is the exact automation tech startups hire engineers for!",
+  back_02: "Swiggy and Amazon query relational SQL databases in milliseconds to fetch your order history, delivery driver details, and current menu prices.",
+  back_05: "Fintech giants like PhonePe and Google Pay hire security analysts to trace network packets and find vulnerabilities before bad actors can exploit them!",
   ai_01: "IPL teams like CSK and Mumbai Indians hire data analysts to calculate bowler economy rates and match probabilities. You can build your own live cricket data charts using Python!",
   ai_02: "Netflix recommendation carousels and Spotify Discover Weekly use machine learning algorithms to predict what you will enjoy next.",
-  content_01: "Every major tech company like Notion, Stripe, and Google pays Documentation Specialists and Technical Writers to turn complex internal ideas into structured digital knowledge.",
+  content_01: "Companies like Notion, Stripe, and Google pay Technical Writers and Product Architects ₹15-25 LPA simply to take complex, chaotic thoughts and structure them into clear guides and specs. Your reflective mind is a superpower when you write down your reflections!",
   content_02: "Anime studios, webtoon creators, and game writers format scenes using 3-act storyboards and screenplays. You can turn your viewing intuition into formatted scripts using WriterDuet!",
   content_05: "Startup founders and TEDx speakers use presentation design principles to pitch million-dollar ideas with clean visual slides.",
-  hw_01: "Automatic toll gates (Fastag) and smart home lights use simple Arduino sensors and C/Python code. You can wire up your first breadboard circuit and light up LEDs with code!"
+  hw_01: "Automatic toll gates (Fastag) and smart home lights use simple Arduino sensors and C/Python code. You can wire up your first breadboard circuit and light up LEDs with code!",
+  hw_02: "Smart agriculture systems and hospital temperature monitors use IoT sensor networks to send alerts directly to mobile apps."
 };
 
 export default function App() {
@@ -348,7 +452,7 @@ export default function App() {
     setChatHistory(updatedChat);
     setLoading(true);
 
-    // Compute smart habit match immediately
+    // Compute smart habit match immediately from authentic student psychology
     const allText = updatedChat.filter(m => m.role === 'user').map(m => m.text).join(" ");
     const matched = mapHabitToComputerSkill(allText);
 
@@ -429,28 +533,65 @@ export default function App() {
       });
 
       if (scored && scored.length > 0) {
-        // Enrich top 3 scored skills with real-life examples and habit bridges
-        const enriched = scored.map((s, idx) => ({
-          ...s,
-          habit_detected: matched.habit_detected,
-          hidden_strength: matched.hidden_strength,
-          real_life_example: REAL_LIFE_EXAMPLES[s.skill_id] || matched.real_life_example,
-          tasks: matched.skill_id === s.skill_id ? matched.tasks : null
-        }));
+        // Ensure the directly matched habit skill is the primary choice at rank 1
+        let listToEnrich = [...scored];
+        const matchIdx = listToEnrich.findIndex(s => s.skill_id === matched.skill_id);
+        
+        if (matchIdx > 0) {
+          const [topMatch] = listToEnrich.splice(matchIdx, 1);
+          listToEnrich.unshift(topMatch);
+        } else if (matchIdx === -1 && matched) {
+          listToEnrich.unshift({
+            institution_id: 1,
+            skill_id: matched.skill_id,
+            skill_name: matched.skill_name,
+            overall_score: matched.overall_score || 95,
+            interest_score: matched.interest_score || 96,
+            time_score: matched.time_score || 92,
+            hardware_score: matched.hardware_score || 95,
+            explanation: matched.explanation
+          });
+        }
+
+        // Enrich top 3 scored skills with real-life examples, habit bridges and tasks
+        const enriched = listToEnrich.slice(0, 3).map((s, idx) => {
+          const isDirectMatch = s.skill_id === matched.skill_id;
+          return {
+            ...s,
+            habit_detected: matched.habit_detected,
+            hidden_strength: matched.hidden_strength,
+            explanation: isDirectMatch ? matched.explanation : s.explanation,
+            real_life_example: REAL_LIFE_EXAMPLES[s.skill_id] || matched.real_life_example,
+            tasks: isDirectMatch ? matched.tasks : (matched.tasks || null),
+            daily_available_minutes: capacityData.daily_available_minutes,
+            hardware_level: capacityData.hardware_level
+          };
+        });
 
         setRankedHypotheses(enriched);
         setSelectedHypothesis(enriched[0]);
+        setPlan({
+          hypothesis_id: enriched[0].skill_id,
+          template_version: 1,
+          tasks: enriched[0].tasks || matched.tasks
+        });
       } else {
         throw new Error("Fallback required");
       }
     } catch (err) {
-      const fallbackList = [matched];
-      setRankedHypotheses(fallbackList);
-      setSelectedHypothesis({
+      const fallbackItem = {
         ...matched,
         daily_available_minutes: capacityData.daily_available_minutes,
         hardware_level: capacityData.hardware_level,
+        real_life_example: REAL_LIFE_EXAMPLES[matched.skill_id] || matched.real_life_example,
         fallback_tasks: matched.tasks
+      };
+      setRankedHypotheses([fallbackItem]);
+      setSelectedHypothesis(fallbackItem);
+      setPlan({
+        hypothesis_id: matched.skill_id,
+        template_version: 1,
+        tasks: matched.tasks
       });
     } finally {
       setLoading(false);
@@ -564,13 +705,13 @@ export default function App() {
               Tap any card below if you want to switch your 5-day project focus to a different tech path.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-left">
               
               {/* Option 1: Video Editing */}
               <button
                 type="button"
                 onClick={() => handleSelectStyle("reels video editing capcut")}
-                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between"
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
               >
                 <div>
                   <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center mb-2 font-bold text-sm">🎬</div>
@@ -584,7 +725,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => handleSelectStyle("gaming coding python games")}
-                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between"
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
               >
                 <div>
                   <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center mb-2 font-bold text-sm">🎮</div>
@@ -594,25 +735,39 @@ export default function App() {
                 <span className="text-[10px] text-indigo-600 font-bold mt-3 block">Choose &rarr;</span>
               </button>
 
-              {/* Option 3: UI/UX Wireframing */}
+              {/* Option 3: Thought Architecture (For Overthinkers / Reflective Minds) */}
               <button
                 type="button"
-                onClick={() => handleSelectStyle("think overthink figma design")}
-                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between"
+                onClick={() => handleSelectStyle("think overthink writing documentation")}
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
+              >
+                <div>
+                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center mb-2 font-bold text-sm">🧠</div>
+                  <h3 className="text-sm font-bold text-slate-900">Thought Architecture</h3>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Notion second brain, specs & technical writing.</p>
+                </div>
+                <span className="text-[10px] text-amber-600 font-bold mt-3 block">Choose &rarr;</span>
+              </button>
+
+              {/* Option 4: UI/UX & Wireframing (Figma) */}
+              <button
+                type="button"
+                onClick={() => handleSelectStyle("figma wireframe ui design mockup")}
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
               >
                 <div>
                   <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center mb-2 font-bold text-sm">🎨</div>
-                  <h3 className="text-sm font-bold text-slate-900">UI/UX & Design</h3>
-                  <p className="text-[11px] text-slate-500 mt-0.5">Figma wireframes, app flows & user psychology.</p>
+                  <h3 className="text-sm font-bold text-slate-900">UI/UX & Wireframing</h3>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Figma app screens, clickable mobile prototypes.</p>
                 </div>
                 <span className="text-[10px] text-purple-600 font-bold mt-3 block">Choose &rarr;</span>
               </button>
 
-              {/* Option 4: Web Frontend */}
+              {/* Option 5: Web Frontend */}
               <button
                 type="button"
                 onClick={() => handleSelectStyle("web website html css frontend")}
-                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between"
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
               >
                 <div>
                   <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-2 font-bold text-sm">🌐</div>
@@ -622,25 +777,39 @@ export default function App() {
                 <span className="text-[10px] text-emerald-600 font-bold mt-3 block">Choose &rarr;</span>
               </button>
 
-              {/* Option 5: Data & Analytics */}
+              {/* Option 6: Data & Analytics */}
               <button
                 type="button"
                 onClick={() => handleSelectStyle("sports cricket analytics stats excel")}
-                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between"
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
               >
                 <div>
-                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center mb-2 font-bold text-sm">📊</div>
-                  <h3 className="text-sm font-bold text-slate-900">Data Analytics</h3>
-                  <p className="text-[11px] text-slate-500 mt-0.5">Cricket stats, match dashboards, Python & Excel.</p>
+                  <div className="w-8 h-8 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center mb-2 font-bold text-sm">📊</div>
+                  <h3 className="text-sm font-bold text-slate-900">Data & Sports Analytics</h3>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Cricket stats, match dashboards, Python Pandas.</p>
                 </div>
-                <span className="text-[10px] text-amber-600 font-bold mt-3 block">Choose &rarr;</span>
+                <span className="text-[10px] text-cyan-600 font-bold mt-3 block">Choose &rarr;</span>
               </button>
 
-              {/* Option 6: IoT & Hardware */}
+              {/* Option 7: Automation & Python APIs */}
+              <button
+                type="button"
+                onClick={() => handleSelectStyle("automate script python backend api")}
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
+              >
+                <div>
+                  <div className="w-8 h-8 rounded-lg bg-yellow-100 text-yellow-800 flex items-center justify-center mb-2 font-bold text-sm">⚡</div>
+                  <h3 className="text-sm font-bold text-slate-900">Automation & APIs</h3>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Automate manual work with Python scripts & APIs.</p>
+                </div>
+                <span className="text-[10px] text-yellow-700 font-bold mt-3 block">Choose &rarr;</span>
+              </button>
+
+              {/* Option 8: IoT & Hardware */}
               <button
                 type="button"
                 onClick={() => handleSelectStyle("robot hardware arduino circuit")}
-                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between"
+                className="p-4 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/40 bg-white transition-all cursor-pointer text-left flex flex-col justify-between shadow-2xs"
               >
                 <div>
                   <div className="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center mb-2 font-bold text-sm">🤖</div>
