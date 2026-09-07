@@ -189,9 +189,9 @@ uvicorn main:app --reload --port 8000
 ## 👥 Team Details — Team Skillcraft
 
 * **Team Name:** **Skillcraft** (Smart India Hackathon 2026)
-* **Team Leader:** **B. Manoj** ([GitHub](https://github.com/manojbagadi))
+* **Team Leader:** **B. Manoj** 
 * **Member 2:** **P. Raghuram** 
 * **Member 3:** **B. Sailaxmi** 
 * **Member 4:** **P. Dharani** 
-* **Member 5:** **ch. Lokteja** 
-* **Member 6:** **B. Harshavardhan** ([GitHub](https://github.com/Harshajaya13))
+* **Member 5:** **CH. Lokteja** 
+* **Member 6:** **B. Harshavardhan** 
